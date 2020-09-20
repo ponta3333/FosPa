@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  bleed_id: 1
+  supply_user_id: 1
+  name: MyString
+  sex: 1
+  age: 1
+  image: MyString
+  content: MyText
+  animal_status: false
+
+two:
+  bleed_id: 1
+  supply_user_id: 1
+  name: MyString
+  sex: 1
+  age: 1
+  image: MyString
+  content: MyText
+  animal_status: false
