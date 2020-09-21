@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  demand_user_id: 1
+  supply_user_id: 1
+  message: MyText
+  which_from: MyString
+
+two:
+  demand_user_id: 1
+  supply_user_id: 1
+  message: MyText
+  which_from: MyString
