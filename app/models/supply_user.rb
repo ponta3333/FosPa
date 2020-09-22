@@ -15,5 +15,5 @@ class SupplyUser < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  attmachment :image
+  attachment :image
 end
