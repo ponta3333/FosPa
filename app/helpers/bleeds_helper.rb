@@ -1,0 +1,2 @@
+module BleedsHelper
+end

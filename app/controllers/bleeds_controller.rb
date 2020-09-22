@@ -1,0 +1,2 @@
+class BleedsController < ApplicationController
+end
