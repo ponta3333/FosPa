@@ -4,12 +4,118 @@
     <title>FosPa</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-    <%= yield %>
+    <div class="wrapper">
+      <header id="header" class="clearfix">
+        <div class="logo">
+          <%= link_to root_path do %>
+            <%= image_tag 'FosPa_logo_heart.png', :size => '245x130' %>
+          <% end %>
+        </div>
+        <div id="sp-menu">
+          <h4>--- メニュー -----</h4>
+          <ul class="menu-bar">
+            <% if demand_user_signed_in? %>
+              <li class="menu-list">
+                <i class="fas fa-paw"></i><%= link_to " マイページ", "#", class: "list" %>
+              </li>
+              <li class="nav-dropdown dropdown menu-list">
+                <i class="fas fa-paw"></i><a class="dropdown-toggle cursor list" data-toggle="dropdown"> カテゴリー別検索
+                </a>
+                <ul id="dropdown-menu"  class="dropdown-menu" role="menu">
+                  <li role="presentation"><%= link_to 'いぬ', "#", class: "dropmenu-link" %></li>
+                  <li role="presentation"><%= link_to 'ねこ', "#", class: "dropmenu-link" %></li>
+                </ul>
+              </li>
+              <li class="menu-list">
+                <i class="fas fa-paw"></i><%= link_to " イベント", events_path, class: "list" %>
+              </li>
+              <li class="menu-list">
+                <i class="fas fa-paw"></i><%= link_to " お問い合わせ履歴", chats_path, class: "list" %>
+              </li>
+              <li class="menu-list">
+                <i class="fas fa-paw"></i><%= link_to " ログアウト", destroy_demand_user_session_path, class: "list" %>
+              </li>
+            <% elsif supply_user_signed_in? %>
+              <li class="menu-list">
+                <i class="fas fa-paw"></i><%= link_to " マイページ", "#", class: "list" %>
+              </li>
+              <li class="nav-dropdown dropdown menu-list">
+                <i class="fas fa-paw"></i><a class="dropdown-toggle cursor list" data-toggle="dropdown"> 新規登録
+                </a>
+                <ul id="dropdown-menu"  class="dropdown-menu" role="menu">
+                  <li role="presentation"><%= link_to '里親募集', new_animal_path, class: "dropmenu-link" %></li>
+                  <li role="presentation"><%= link_to 'イベント告知', new_event_path, class: "dropmenu-link" %></li>
+                </ul>
+              </li>
+              <li class="nav-dropdown dropdown menu-list">
+                <i class="fas fa-paw"></i><a class="dropdown-toggle cursor list" data-toggle="dropdown"> 募集・告知履歴
+                </a>
+                <ul id="dropdown-menu"  class="dropdown-menu" role="menu">
+                  <li role="presentation"><%= link_to '里親', animals_path, class: "dropmenu-link" %></li>
+                  <li role="presentation"><%= link_to 'イベント', events_path, class: "dropmenu-link" %></li>
+                </ul>
+              </li>
+              <li class="menu-list">
+                <i class="fas fa-paw"></i><%= link_to " ログアウト", destroy_supply_user_session_path, class: "list" %>
+              </li>
+            <% else %>
+              <li class="menu-list">
+                <i class="fas fa-paw"></i><%= link_to " FosPaとは", about_path, class: "list" %>
+              </li>
+              <li class="nav-dropdown dropdown menu-list">
+                <i class="fas fa-paw"></i><a class="dropdown-toggle cursor list" data-toggle="dropdown"> カテゴリー別検索
+                </a>
+                <ul id="dropdown-menu"  class="dropdown-menu" role="menu">
+                  <li role="presentation"><%= link_to 'いぬ', "#", class: "dropmenu-link" %></li>
+                  <li role="presentation"><%= link_to 'ねこ', "#", class: "dropmenu-link" %></li>
+                </ul>
+              </li>
+              <li class="menu-list">
+                <i class="fas fa-paw"></i><%= link_to " イベント", new_demand_user_registration_path, class: "list" %>
+              </li>
+              <li class="menu-list">
+                <i class="fas fa-paw"></i><%= link_to " 新規登録", new_demand_user_registration_path, class: "list" %>
+              </li>
+              <li class="menu-list">
+                <i class="fas fa-paw"></i><%= link_to " ログイン", new_demand_user_session_path, class: "list" %>
+              </li>
+            <% end %>
+          </ul>
+          <h4>--- SNS --------</h4>
+          <ul class="menu-bar">
+            <li class="menu-list">
+              <%= link_to "#", class: "list" do %>
+                <i class="fab fa-twitter-square sns-icon"></i>
+              <% end %>
+              <%= link_to "#", class: "list" do %>
+                <i class="fab fa-facebook-square sns-icon"></i>
+              <% end %>
+              <%= link_to "#", class: "list" do %>
+                <i class="fab fa-instagram sns-icon"></i>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+        <!--  -->
+        <div id="hm-icon">
+            <%= link_to "#", class: "menu-trigger" do %>
+              <span></span>
+              <span></span>
+              <span></span>
+            <% end %>
+          </div>
+      </header><!-- /header -->
+      <div class="container main">
+        <%= yield %>
+      </div>
+      <footer>
+      </footer>
+    </div>
   </body>
 </html>
