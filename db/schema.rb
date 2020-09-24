@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_22_114010) do
+ActiveRecord::Schema.define(version: 2020_09_24_071505) do
 
   create_table "animals", force: :cascade do |t|
     t.integer "bleed_id", null: false
@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2020_09_22_114010) do
     t.string "name", null: false
     t.integer "sex", null: false
     t.integer "age", null: false
-    t.string "image", null: false
+    t.string "image_id", null: false
     t.text "content", null: false
     t.boolean "animal_status", default: true, null: false
     t.datetime "created_at", null: false
@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 2020_09_22_114010) do
     t.string "name", null: false
     t.string "day", null: false
     t.string "place", null: false
-    t.string "image", null: false
+    t.string "image_id", null: false
     t.text "content", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -94,7 +94,7 @@ ActiveRecord::Schema.define(version: 2020_09_22_114010) do
     t.datetime "remember_created_at"
     t.string "name", null: false
     t.string "name_kana", null: false
-    t.string "image", null: false
+    t.string "image_id", null: false
     t.string "postal_code", null: false
     t.string "address", null: false
     t.string "phone", null: false

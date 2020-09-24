@@ -43,12 +43,20 @@ body {
 	height: 130px;
 	margin: 10px;
 	z-index: 10;
+	position: relative;
 }
-.logo{
-	float: left;
+.logo {
+	position: fixed;
 }
 .menu-bar {
 	list-style: none;
+}
+.welcome {
+	position: absolute;
+	right: 10%;
+}
+.welcome-message {
+	line-height: 100px;
 }
 /* --------ハンバーガーアイコン--------  */
 #hm-icon{
@@ -106,8 +114,8 @@ body {
 }
 /* -------- spメニュー-------- */
 #sp-menu {
-	padding: 10px;
-	font-size: 16px;
+  padding: 10px;
+  font-size: 16px;
   position: fixed;
   top: 10%;
   right: 2%;
@@ -144,6 +152,7 @@ body {
 	background: rgba(255,255,255,0.9);
 	padding: 20px;
 	margin-bottom: 20px;
+	height: 3000px;
 }
 
 /* --------footer--------  */
@@ -154,4 +163,12 @@ footer {
 	background: rgba(128,128,128,0.9);
 	position: absolute;
 	bottom: 0;
+}
+/* --------form layout--------  */
+.underbar {
+	border-bottom: solid 4px red;
+	border-radius: 5%;
+}
+.form-space {
+	margin-bottom: 15px;
 }

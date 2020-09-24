@@ -10,7 +10,6 @@ class SupplyUser < ApplicationRecord
   validates :postal_code, presence: true
   validates :address, presence: true
   validates :phone, presence: true
-  validates :is_deleted, presence: true
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable

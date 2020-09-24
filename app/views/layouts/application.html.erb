@@ -11,8 +11,8 @@
   </head>
   <body>
     <div class="wrapper">
-      <header id="header" class="clearfix">
-        <div class="logo">
+      <header id="header" class="row">
+        <div class="logo col-xs-3">
           <%= link_to root_path do %>
             <%= image_tag 'FosPa_logo_heart.png', :size => '245x130' %>
           <% end %>
@@ -39,7 +39,7 @@
                 <i class="fas fa-paw"></i><%= link_to " お問い合わせ履歴", chats_path, class: "list" %>
               </li>
               <li class="menu-list">
-                <i class="fas fa-paw"></i><%= link_to " ログアウト", destroy_demand_user_session_path, class: "list" %>
+                <i class="fas fa-paw"></i><%= link_to " ログアウト", destroy_demand_user_session_path, method: :delete, class: "list" %>
               </li>
             <% elsif supply_user_signed_in? %>
               <li class="menu-list">
@@ -62,7 +62,7 @@
                 </ul>
               </li>
               <li class="menu-list">
-                <i class="fas fa-paw"></i><%= link_to " ログアウト", destroy_supply_user_session_path, class: "list" %>
+                <i class="fas fa-paw"></i><%= link_to " ログアウト", destroy_supply_user_session_path, method: :delete, class: "list" %>
               </li>
             <% else %>
               <li class="menu-list">
@@ -77,7 +77,7 @@
                 </ul>
               </li>
               <li class="menu-list">
-                <i class="fas fa-paw"></i><%= link_to " イベント", new_demand_user_registration_path, class: "list" %>
+                <i class="fas fa-paw"></i><%= link_to " イベント", events_path, class: "list" %>
               </li>
               <li class="menu-list">
                 <i class="fas fa-paw"></i><%= link_to " 新規登録", new_demand_user_registration_path, class: "list" %>
@@ -87,7 +87,7 @@
               </li>
             <% end %>
           </ul>
-          <h4>--- SNS --------</h4>
+          <h4>--- SNS ---------</h4>
           <ul class="menu-bar">
             <li class="menu-list">
               <%= link_to "#", class: "list" do %>
@@ -103,6 +103,15 @@
           </ul>
         </div>
         <!--  -->
+        <div class="welcome">
+          <% if demand_user_signed_in? %>
+            <strong class="welcome-message"><span class="underbar">ようこそ<%= demand_user.nickname %>さん !</span></p>
+          <% elsif supply_user_signed_in? %>
+            <strong class="welcome-message"><span class="underbar">ようこそ<%= supply_user.name %>さん !</span></strong>
+          <% else %>
+            <strong class="welcome-message"><span class="underbar">ようこそゲストさん !</span></strong>
+          <% end %>
+        </div>
         <div id="hm-icon">
             <%= link_to "#", class: "menu-trigger" do %>
               <span></span>

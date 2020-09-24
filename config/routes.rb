@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   resources :demand_users, only: [:show, :edit, :update]
   get 'demand_users/withdraw' => 'demand_users#withdraw'
 	patch 'demand_users/out' => 'demand_users#out'
-	resources :supply_users, only: [:show, :edit, :update]
+	resources :supply_users, only: [:show, :index, :edit, :update]
   get 'supply_users/withdraw' => 'supply_users#withdraw'
 	patch 'supply_users/out' => 'supply_users#out'
   resources :animals do
