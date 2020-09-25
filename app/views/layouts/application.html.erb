@@ -105,9 +105,9 @@
         <!--  -->
         <div class="welcome">
           <% if demand_user_signed_in? %>
-            <strong class="welcome-message"><span class="underbar">ようこそ<%= demand_user.nickname %>さん !</span></p>
+            <strong class="welcome-message"><span class="underbar">ようこそ<%= current_demand_user.nickname %>さん !</span></strong>
           <% elsif supply_user_signed_in? %>
-            <strong class="welcome-message"><span class="underbar">ようこそ<%= supply_user.name %>さん !</span></strong>
+            <strong class="welcome-message"><span class="underbar">ようこそ<%= current_supply_user.name %>さん !</span></strong>
           <% else %>
             <strong class="welcome-message"><span class="underbar">ようこそゲストさん !</span></strong>
           <% end %>
