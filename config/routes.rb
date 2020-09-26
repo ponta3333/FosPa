@@ -13,10 +13,12 @@ Rails.application.routes.draw do
     passwords: 'supply_users/passwords',
     registrations: 'supply_users/registrations'
   }
-  resources :demand_users, only: [:show, :edit, :update]
+  resources :demand_users, only: [:show, :update]
+  get 'demand_users/demand_users/edit' => 'demand_users#edit'
   get 'demand_users/withdraw' => 'demand_users#withdraw'
 	patch 'demand_users/out' => 'demand_users#out'
-	resources :supply_users, only: [:show, :index, :edit, :update]
+	resources :supply_users, only: [:show, :index, :update]
+  get 'supply_users/supply_users/edit' => 'supply_users#edit'
   get 'supply_users/withdraw' => 'supply_users#withdraw'
 	patch 'supply_users/out' => 'supply_users#out'
   resources :animals do

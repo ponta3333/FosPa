@@ -138,11 +138,14 @@ body {
 .cursor {
 	cursor: pointer;
 }
+#dropdown-menu {
+	background-color: #FFEBCD;
+}
 #dropdown-menu li{
 	margin-bottom: 0;
-}
-.dropmenu-link {
-	color: black;
+	}
+#dropdown-menu > li > a {
+	font-weight: bold;
 }
 .sns-icon {
 	font-size: 25px;
@@ -170,4 +173,30 @@ footer {
 }
 .form-space {
 	margin-bottom: 15px;
+}
+/* --------table layout--------  */
+.user-table {
+	width: 80%;
+	margin: 0 auto;
+}
+.category{
+	width: 40%;
+	background-color: #FAFAD2;
+}
+.infomation{
+	width: 60%;
+}
+/* --------ユーザー詳細 layout--------  */
+.relative {
+	position: relative;
+}
+.demand-link-position {
+	position: absolute;
+	right: 11%;
+	bottom: 0;
+}
+.supply-link-position {
+	position: absolute;
+	right: 8%;
+	bottom: 0;
 }

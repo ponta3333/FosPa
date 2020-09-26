@@ -22,7 +22,7 @@
           <ul class="menu-bar">
             <% if demand_user_signed_in? %>
               <li class="menu-list">
-                <i class="fas fa-paw"></i><%= link_to " マイページ", "#", class: "list" %>
+                <i class="fas fa-paw"></i><%= link_to " マイページ", demand_user_path(current_demand_user), class: "list" %>
               </li>
               <li class="nav-dropdown dropdown menu-list">
                 <i class="fas fa-paw"></i><a class="dropdown-toggle cursor list" data-toggle="dropdown"> カテゴリー別検索
@@ -43,7 +43,7 @@
               </li>
             <% elsif supply_user_signed_in? %>
               <li class="menu-list">
-                <i class="fas fa-paw"></i><%= link_to " マイページ", "#", class: "list" %>
+                <i class="fas fa-paw"></i><%= link_to " マイページ", supply_user_path(current_supply_user), class: "list" %>
               </li>
               <li class="nav-dropdown dropdown menu-list">
                 <i class="fas fa-paw"></i><a class="dropdown-toggle cursor list" data-toggle="dropdown"> 新規登録
@@ -72,8 +72,8 @@
                 <i class="fas fa-paw"></i><a class="dropdown-toggle cursor list" data-toggle="dropdown"> カテゴリー別検索
                 </a>
                 <ul id="dropdown-menu"  class="dropdown-menu" role="menu">
-                  <li role="presentation"><%= link_to 'いぬ', "#", class: "dropmenu-link" %></li>
-                  <li role="presentation"><%= link_to 'ねこ', "#", class: "dropmenu-link" %></li>
+                  <li><%= link_to 'いぬ', "#", class: "dropmenu-link" %></li>
+                  <li><%= link_to 'ねこ', "#", class: "dropmenu-link" %></li>
                 </ul>
               </li>
               <li class="menu-list">
@@ -105,9 +105,9 @@
         <!--  -->
         <div class="welcome">
           <% if demand_user_signed_in? %>
-            <strong class="welcome-message"><span class="underbar">ようこそ<%= current_demand_user.nickname %>さん !</span></strong>
+            <strong class="welcome-message"><span class="underbar">こんにちは<%= current_demand_user.nickname %>さん !</span></strong>
           <% elsif supply_user_signed_in? %>
-            <strong class="welcome-message"><span class="underbar">ようこそ<%= current_supply_user.name %>さん !</span></strong>
+            <strong class="welcome-message"><span class="underbar">こんにちは<%= current_supply_user.name %>さん !</span></strong>
           <% else %>
             <strong class="welcome-message"><span class="underbar">ようこそゲストさん !</span></strong>
           <% end %>

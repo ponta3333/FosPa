@@ -1,2 +1,52 @@
-<h1>DemandUsers#show</h1>
-<p>Find me in app/views/demand_users/show.html.erb</p>
+<div class="row relative">
+  <div class="col-xs-4">
+    <h2><span class="underbar">会員情報</span></h2>
+  </div>
+  <div class="demand-link-position">
+  	<%= link_to "編集", demand_users_demand_users_edit_path, class: "btn btn-default" %>
+  </div>
+</div>
+<div class="row">
+	<div class="col-xs-12">
+		<table class="table table-striped table-bordered user-table">
+			<tbody>
+				<tr>
+					<td class="category">氏名</td>
+					<td class="infomation"><%= current_demand_user.name %></td>
+				</tr>
+				<tr>
+					<td class="category">氏名(フリガナ)</td>
+					<td class="infomation"><%= current_demand_user.name_kana %></td>
+				</tr>
+				<tr>
+					<td class="category">ニックネーム</td>
+					<td class="infomation"><%= current_demand_user.nickname %></td>
+				</tr>
+				<tr>
+					<td class="category">メールアドレス</td>
+					<td class="infomation"><%= current_demand_user.email %></td>
+				</tr>
+				<tr>
+					<td class="category">郵便番号</td>
+					<td class="infomation"><%= current_demand_user.postal_code %></td>
+				</tr>
+				<tr>
+					<td class="category">住所</td>
+					<td class="infomation"><%= current_demand_user.address %></td>
+				</tr>
+				<tr>
+					<td class="category">電話番号</td>
+					<td class="infomation"><%= current_demand_user.phone %></td>
+				</tr>
+				<tr>
+					<td class="category">年齢</td>
+					<td class="infomation"><%= current_demand_user.age %></td>
+				</tr>
+				<tr>
+					<td class="category">職業</td>
+					<td class="infomation"><%= current_demand_user.job %></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
