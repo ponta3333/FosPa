@@ -13,11 +13,17 @@
     <div class="wrapper">
       <header id="header" class="row">
         <div class="logo col-xs-3">
-          <%= link_to root_path do %>
-            <%= image_tag 'FosPa_logo_heart.png', :size => '245x130' %>
+          <% if supply_user_signed_in? %>
+            <%= link_to supply_users_path do %>
+              <%= image_tag 'FosPa_logo_heart.png', :size => '245x130' %>
+            <% end %>
+          <% else %>
+            <%= link_to root_path do %>
+              <%= image_tag 'FosPa_logo_heart.png', :size => '245x130' %>
+            <% end %>
           <% end %>
         </div>
-        <div id="sp-menu">
+        <div id="sp-menu" class="sp-menu">
           <h4>--- メニュー -----</h4>
           <ul class="menu-bar">
             <% if demand_user_signed_in? %>
@@ -27,9 +33,9 @@
               <li class="nav-dropdown dropdown menu-list">
                 <i class="fas fa-paw"></i><a class="dropdown-toggle cursor list" data-toggle="dropdown"> カテゴリー別検索
                 </a>
-                <ul id="dropdown-menu"  class="dropdown-menu" role="menu">
-                  <li role="presentation"><%= link_to 'いぬ', "#", class: "dropmenu-link" %></li>
-                  <li role="presentation"><%= link_to 'ねこ', "#", class: "dropmenu-link" %></li>
+                <ul class="dropdown-menu">
+                  <li><i class="fas fa-paw"><%= link_to ' いぬ', "#", class: "dropmenu-link" %></i></li>
+                  <li><i class="fas fa-paw"><%= link_to ' ねこ', "#", class: "dropmenu-link" %></i></li>
                 </ul>
               </li>
               <li class="menu-list">
@@ -49,16 +55,16 @@
                 <i class="fas fa-paw"></i><a class="dropdown-toggle cursor list" data-toggle="dropdown"> 新規登録
                 </a>
                 <ul id="dropdown-menu"  class="dropdown-menu" role="menu">
-                  <li role="presentation"><%= link_to '里親募集', new_animal_path, class: "dropmenu-link" %></li>
-                  <li role="presentation"><%= link_to 'イベント告知', new_event_path, class: "dropmenu-link" %></li>
+                  <li><i class="fas fa-paw"><%= link_to ' 里親募集', new_animal_path, class: "dropmenu-link" %></i></li>
+                  <li><i class="fas fa-paw"><%= link_to ' イベント告知', new_event_path, class: "dropmenu-link" %></i></li>
                 </ul>
               </li>
               <li class="nav-dropdown dropdown menu-list">
                 <i class="fas fa-paw"></i><a class="dropdown-toggle cursor list" data-toggle="dropdown"> 募集・告知履歴
                 </a>
-                <ul id="dropdown-menu"  class="dropdown-menu" role="menu">
-                  <li role="presentation"><%= link_to '里親', animals_path, class: "dropmenu-link" %></li>
-                  <li role="presentation"><%= link_to 'イベント', events_path, class: "dropmenu-link" %></li>
+                <ul class="dropdown-menu">
+                  <li><i class="fas fa-paw"><%= link_to ' 里親', animals_path, class: "dropmenu-link" %></i></li>
+                  <li><i class="fas fa-paw"><%= link_to ' イベント', events_path, class: "dropmenu-link" %></i></li>
                 </ul>
               </li>
               <li class="menu-list">
@@ -71,19 +77,29 @@
               <li class="nav-dropdown dropdown menu-list">
                 <i class="fas fa-paw"></i><a class="dropdown-toggle cursor list" data-toggle="dropdown"> カテゴリー別検索
                 </a>
-                <ul id="dropdown-menu"  class="dropdown-menu" role="menu">
-                  <li><%= link_to 'いぬ', "#", class: "dropmenu-link" %></li>
-                  <li><%= link_to 'ねこ', "#", class: "dropmenu-link" %></li>
+                <ul class="dropdown-menu" role="menu">
+                  <li><i class="fas fa-paw"><%= link_to ' いぬ', "#", class: "dropmenu-link" %></i></li>
+                  <li><i class="fas fa-paw"><%= link_to ' ねこ', "#", class: "dropmenu-link" %></i></li>
                 </ul>
               </li>
               <li class="menu-list">
                 <i class="fas fa-paw"></i><%= link_to " イベント", events_path, class: "list" %>
               </li>
-              <li class="menu-list">
-                <i class="fas fa-paw"></i><%= link_to " 新規登録", new_demand_user_registration_path, class: "list" %>
+              <li class="nav-dropdown dropdown menu-list">
+                <i class="fas fa-paw"></i><a class="dropdown-toggle cursor list" data-toggle="dropdown"> 新規登録
+                </a>
+                <ul class="dropdown-menu">
+                  <li><i class="fas fa-paw"><%= link_to ' 一般会員', new_demand_user_registration_path, class: "dropmenu-link" %></i></li>
+                  <li><i class="fas fa-paw"><%= link_to ' 募集会員', new_supply_user_registration_path, class: "dropmenu-link" %></i></li>
+                </ul>
               </li>
-              <li class="menu-list">
-                <i class="fas fa-paw"></i><%= link_to " ログイン", new_demand_user_session_path, class: "list" %>
+              <li class="nav-dropdown dropdown menu-list">
+                <i class="fas fa-paw"></i><a class="dropdown-toggle cursor list" data-toggle="dropdown"> ログイン
+                </a>
+                <ul class="dropdown-menu">
+                  <li><i class="fas fa-paw"><%= link_to ' 一般会員', new_demand_user_session_path, class: "dropmenu-link" %></i></li>
+                  <li><i class="fas fa-paw"><%= link_to ' 募集会員', new_supply_user_session_path, class: "dropmenu-link" %></i></li>
+                </ul>
               </li>
             <% end %>
           </ul>
@@ -102,14 +118,13 @@
             </li>
           </ul>
         </div>
-        <!--  -->
         <div class="welcome">
           <% if demand_user_signed_in? %>
-            <strong class="welcome-message"><span class="underbar">こんにちは<%= current_demand_user.nickname %>さん !</span></strong>
+            <strong class="welcome-message"><span class="underbar">こんにちは <%= current_demand_user.nickname %>さん !</span></strong>
           <% elsif supply_user_signed_in? %>
-            <strong class="welcome-message"><span class="underbar">こんにちは<%= current_supply_user.name %>さん !</span></strong>
+            <strong class="welcome-message"><span class="underbar">こんにちは <%= current_supply_user.name %>さん !</span></strong>
           <% else %>
-            <strong class="welcome-message"><span class="underbar">ようこそゲストさん !</span></strong>
+            <strong class="welcome-message"><span class="underbar">ようこそ ゲストさん !</span></strong>
           <% end %>
         </div>
         <div id="hm-icon">

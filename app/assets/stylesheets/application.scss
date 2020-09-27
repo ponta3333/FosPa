@@ -28,7 +28,7 @@
 	clear: both;
 }
 body {
-	background-image: url(asiato.png);
+	background-image: image-url(asiato.png);
 	background-size: 100% auto;
 	background-repeat: repeat-y;
 	}
@@ -126,7 +126,7 @@ body {
   display: none;
   z-index: 9;
 }
-#sp-menu li{
+.sp-menu li{
   text-align: left;
   margin-bottom: 30px;
 }
@@ -138,14 +138,18 @@ body {
 .cursor {
 	cursor: pointer;
 }
-#dropdown-menu {
+.dropdown-menu {
 	background-color: #FFEBCD;
 }
-#dropdown-menu li{
+.dropdown-menu li{
 	margin-bottom: 0;
 	}
-#dropdown-menu > li > a {
+.dropdown-menu > li > i {
+	color: #000;
+}
+.dropdown-menu > li > i > a {
 	font-weight: bold;
+	color: #000;
 }
 .sns-icon {
 	font-size: 25px;
