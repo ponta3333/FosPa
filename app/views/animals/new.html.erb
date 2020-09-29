@@ -1,2 +1,49 @@
-<h1>Animals#new</h1>
-<p>Find me in app/views/animals/new.html.erb</p>
+<div class="row">
+  <div class="col-xs-4">
+    <h2><span class="underbar">里親募集フォーム</span></h2>
+  </div>
+</div>
+<%= form_for(@animal) do |f| %>
+  <div class="row form-space">
+    <div class="col-xs-3 col-xs-offset-3">
+      <label class="control-label">名前</label><br />
+      <%= f.text_field :name, class: "form-control", placeholder: "ポチ" %>
+    </div>
+  </div>
+  <div class="row form-space">
+    <div class="col-xs-2 col-xs-offset-3">
+      <label class="control-label">性別</label><br />
+      <%= f.select :sex, Animal.sexes.keys, class: "form-control", prompt:"---選択して下さい---" %>
+    </div>
+    <div class="col-xs-2">
+      <label class="control-label">年齢</label><br />
+      <%= f.select :age, Animal.ages.keys, class: "form-control", prompt:"---選択して下さい---" %>
+    </div>
+  </div>
+  <div class="row form-space">
+    <div class="col-xs-3 col-xs-offset-3">
+      <label class="control-label">種類</label><br />
+      <div class="row">
+        <label class="col-xs-3"><input type="radio" name="genre_radio" value="1">イヌ</label>
+        <label class="col-xs-3"><input type="radio" name="genre_radio" value="2">ネコ</label>
+        <%= button_tag '決定', type: 'button' %>
+      </div>
+    </div>
+  </div>
+  <div class="row form-space">
+    <div class="col-xs-2 col-xs-offset-3">
+      <%= f.collection_select :bleed_id, @bleeds, :id, :name, class: "form-control", prompt:"---選択して下さい---" %>
+    </div>
+  </div>
+  <div class="row form-space">
+    <div class="col-xs-6 col-xs-offset-3">
+      <label class="control-label">紹介文</label><br />
+      <%= f.text_area :content, class: "form-control", placeholder: "紹介文を入力", rows:5 %>
+    </div>
+  </div>
+ <div class="row form-space">
+    <div class="col-xs-3 col-xs-offset-3">
+      </i><%= f.submit "募集する", class: "btn btn-info" %>
+    </div>
+  </div>
+<% end %>

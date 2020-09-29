@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_24_071505) do
+ActiveRecord::Schema.define(version: 2020_09_28_061242) do
 
   create_table "animals", force: :cascade do |t|
     t.integer "bleed_id", null: false
@@ -65,12 +65,13 @@ ActiveRecord::Schema.define(version: 2020_09_24_071505) do
   create_table "events", force: :cascade do |t|
     t.integer "supply_user_id", null: false
     t.string "name", null: false
-    t.string "day", null: false
+    t.date "day", null: false
     t.string "place", null: false
     t.string "image_id", null: false
     t.text "content", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "prefecture"
   end
 
   create_table "favorites", force: :cascade do |t|
