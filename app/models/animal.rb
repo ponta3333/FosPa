@@ -1,4 +1,5 @@
 class Animal < ApplicationRecord
+  attr_accessor :dog_bleed_id, :cat_bleed_id
 
   has_many :favorites, dependent: :destroy
   belongs_to :bleed

@@ -4,46 +4,62 @@
   </div>
 </div>
 <%= form_for(@animal) do |f| %>
-  <div class="row form-space">
-    <div class="col-xs-3 col-xs-offset-3">
-      <label class="control-label">名前</label><br />
-      <%= f.text_field :name, class: "form-control", placeholder: "ポチ" %>
+<div class="row form-group">
+  <div class="col-xs-4 col-xs-offset-1">
+    <label class="control-label">イメージ画像</label><br />
+    <div>
+      <%= attachment_image_tag @animal, :image, format: 'jpeg', size:"300x300", fallback: "fospa_no_image.png", class: "image animal-image" %>
     </div>
+    <%= f.attachment_field :image, autocomplete: "image_id", id:"image" %>
   </div>
-  <div class="row form-space">
-    <div class="col-xs-2 col-xs-offset-3">
-      <label class="control-label">性別</label><br />
-      <%= f.select :sex, Animal.sexes.keys, class: "form-control", prompt:"---選択して下さい---" %>
+  <div class="col-xs-7">
+    <div class="row form-space">
+      <div class="col-xs-3">
+        <label class="control-label">名前</label><br />
+        <%= f.text_field :name, class: "form-control", placeholder: "ポチ" %>
+      </div>
     </div>
-    <div class="col-xs-2">
-      <label class="control-label">年齢</label><br />
-      <%= f.select :age, Animal.ages.keys, class: "form-control", prompt:"---選択して下さい---" %>
+    <div class="row form-space">
+      <div class="col-xs-3">
+        <label class="control-label">性別</label><br />
+        <%= f.select :sex, Animal.sexes.keys, class: "form-control", prompt:"---選択して下さい---" %>
+      </div>
+      <div class="col-xs-3">
+        <label class="control-label">年齢</label><br />
+        <%= f.select :age, Animal.ages.keys, class: "form-control", prompt:"---選択して下さい---" %>
+      </div>
     </div>
-  </div>
-  <div class="row form-space">
-    <div class="col-xs-3 col-xs-offset-3">
-      <label class="control-label">種類</label><br />
-      <div class="row">
-        <label class="col-xs-3"><input type="radio" name="genre_radio" value="1">イヌ</label>
-        <label class="col-xs-3"><input type="radio" name="genre_radio" value="2">ネコ</label>
-        <%= button_tag '決定', type: 'button' %>
+    <div class="row form-space">
+      <div class="col-xs-6">
+        <label class="control-label">種類</label><br />
+        <div class="row">
+          <label class="col-xs-3"><input type="radio" name="genre_radio" value="1" checked="checked">イヌ</label>
+          <label class="col-xs-3"><input type="radio" name="genre_radio" value="2">ネコ</label>
+          <%= button_tag '決定', type: 'button', id:"kettei" %>
+        </div>
+      </div>
+    </div>
+    <div class="row form-space">
+      <div class="col-xs-4">
+        <div class="dog_select">
+          <%= f.collection_select :dog_bleed_id, @bleed_dog, :id, :name, class: "form-control", prompt:"-------選択して下さい-------" %>
+        </div>
+        <div class="cat_select">
+          <%= f.collection_select :cat_bleed_id, @bleed_cat, :id, :name, class: "form-control", prompt:"------選択して下さい------" %>
+        </div>
+      </div>
+    </div>
+    <div class="row form-space">
+      <div class="col-xs-9">
+        <label class="control-label">紹介文</label><br />
+        <%= f.text_area :content, class: "form-control", placeholder: "紹介文を入力", rows:5 %>
+      </div>
+    </div>
+   <div class="row form-space">
+      <div class="col-xs-3">
+        </i><%= f.submit "募集する", class: "btn btn-info" %>
       </div>
     </div>
   </div>
-  <div class="row form-space">
-    <div class="col-xs-2 col-xs-offset-3">
-      <%= f.collection_select :bleed_id, @bleeds, :id, :name, class: "form-control", prompt:"---選択して下さい---" %>
-    </div>
-  </div>
-  <div class="row form-space">
-    <div class="col-xs-6 col-xs-offset-3">
-      <label class="control-label">紹介文</label><br />
-      <%= f.text_area :content, class: "form-control", placeholder: "紹介文を入力", rows:5 %>
-    </div>
-  </div>
- <div class="row form-space">
-    <div class="col-xs-3 col-xs-offset-3">
-      </i><%= f.submit "募集する", class: "btn btn-info" %>
-    </div>
-  </div>
+</div>
 <% end %>

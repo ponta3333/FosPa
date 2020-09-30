@@ -30,16 +30,31 @@ $(document).on('turbolinks:load', function() {
 
 // preview
 $(document).on('turbolinks:load', function() {
-$(function(){
+  $(function() {
     // inputのidから情報の取得
     $('#image').on('change', function (e) {
 	// ここから既存の画像のurlの取得
-    var reader = new FileReader();
-    reader.onload = function (e) {
+      var reader = new FileReader();
+      reader.onload = function (e) {
         $(".image").attr('src', e.target.result);
-    }
+      }
 	// ここまで
     reader.readAsDataURL(e.target.files[0]); //取得したurlにアップロード画像のurlを挿入
+    });
+  });
 });
-});
+
+// 動物登録・編集フォームの種類選択
+$(document).on('turbolinks:load', function() {
+  $(function() {
+    $("#kettei").on("click",function() {
+      if ($("input[name='genre_radio']:checked").val() == 1) {
+        $(".dog_select").attr("style","display: inline;");
+        $(".cat_select").attr("style","display: none;");
+      } else {
+        $(".cat_select").attr("style","display: inline;");
+        $(".dog_select").attr("style","display: none;");
+      }
+    });
+  });
 });

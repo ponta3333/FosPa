@@ -27,16 +27,6 @@
 	display: block;
 	clear: both;
 }
-body {
-	background-image: image-url('asiato.png');
-	background-size: 100% auto;
-	background-repeat: repeat-y;
-	}
-.wrapper {
-	min-height: 100vh;
-	position: relative;
-	padding-bottom: 80px;
-}
 /* --------header-------- */
 #header {
 	width: 100%;
@@ -57,6 +47,26 @@ body {
 }
 .welcome-message {
 	line-height: 100px;
+}
+/* --------body--------  */
+body {
+	background-image: image-url('asiato.png');
+	background-size: 100% auto;
+	background-repeat: repeat-y;
+	}
+h2 {
+	margin-left: 40px;
+}
+.wrapper {
+	min-height: 100vh;
+	position: relative;
+	padding-bottom: 80px;
+}
+.main {
+	background: rgba(255,255,255,0.9);
+	padding: 20px;
+	margin-bottom: 20px;
+	border-radius: 10px;
 }
 /* --------ハンバーガーアイコン--------  */
 #hm-icon{
@@ -154,13 +164,6 @@ body {
 .sns-icon {
 	font-size: 25px;
 }
-/* main */
-.main {
-	background: rgba(255,255,255,0.9);
-	padding: 20px;
-	margin-bottom: 20px;
-}
-
 /* --------footer--------  */
 footer {
 	width: 100%;
@@ -173,7 +176,7 @@ footer {
 /* --------form layout--------  */
 .underbar {
 	border-bottom: solid 4px red;
-	border-radius: 5%;
+	border-radius: 3px;
 }
 .form-space {
 	margin-bottom: 15px;
@@ -203,4 +206,50 @@ footer {
 	position: absolute;
 	right: 8%;
 	bottom: 0;
+}
+.dog_select {
+	display: none;
+}
+.cat_select {
+	display: none;
+}
+/* --------一覧画面 layout--------  */
+.index-space {
+	margin-top: 30px;
+}
+.posted {
+	width: 250px;
+	padding: 10px;
+	margin: 20px;
+	border-radius: 8px;
+	background-color: #D9E5FF;
+}
+.image {
+	border-radius: 8px;
+}
+.index-name {
+	background-color: #FFFFE0;
+	color: #333333;
+}
+.animal-image {
+	border-radius: 50%;
+}
+.animalmale {
+	width: 250px;
+	height: 330px;
+	padding: 10px;
+	margin: 20px;
+	border-radius: 8px;
+	background-color: #D7EEFF;
+}
+.animalfemale {
+	width: 250px;
+	height: 330px;
+	padding: 10px;
+	margin: 20px;
+	border-radius: 8px;
+	background-color: #FFE4E1;
+}
+.animalfont {
+	color: #FF69A3;
 }
