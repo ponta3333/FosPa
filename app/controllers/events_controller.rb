@@ -9,6 +9,8 @@ class EventsController < ApplicationController
   		@events = Event.order(day: :desc).page(params[:page]).reverse_order
   	elsif supply_user_signed_in?
   		@events = current_supply_user.events.order(day: :desc).page(params[:page]).reverse_order
+    else
+      @events = Event.order(day: :desc).page(params[:page]).reverse_order
   	end
   end
 

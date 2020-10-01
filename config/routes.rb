@@ -22,11 +22,9 @@ Rails.application.routes.draw do
   get 'supply_users/withdraw' => 'supply_users#withdraw'
 	patch 'supply_users/out' => 'supply_users#out'
   resources :animals do
-  	resources :bleeds, only: [:create, :update] do
-  		resources :genres, only: [:create, :update]
-  	end
   	resources :favorites, only: [:create, :destroy]
   end
+  resources :genres, only: [:show]
   resources :events
   resources :chats, only: [:show, :create, :index]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
