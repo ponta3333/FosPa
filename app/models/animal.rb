@@ -16,4 +16,8 @@ class Animal < ApplicationRecord
 
   attachment :image
 
+  def favorited_by?(demand_user)
+    favorites.where(demand_user_id: demand_user.id).exists?
+  end
+
 end

@@ -1,5 +1,8 @@
 class AnimalsController < ApplicationController
+
   def show
+  	@animal = Animal.find(params[:id])
+  	@genre = Genre.find(@animal.bleed.genre_id)
   end
 
   def index

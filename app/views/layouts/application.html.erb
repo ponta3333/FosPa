@@ -31,7 +31,7 @@
                 <i class="fas fa-paw"></i><%= link_to " マイページ", demand_user_path(current_demand_user), class: "list" %>
               </li>
               <li class="nav-dropdown dropdown menu-list">
-                <i class="fas fa-paw"></i><a class="dropdown-toggle cursor list" data-toggle="dropdown"> 種類別パートナー検索
+                <i class="fas fa-paw"></i><a class="dropdown-toggle cursor list" data-toggle="dropdown"> 種別パートナー検索
                 </a>
                 <ul class="dropdown-menu">
                   <% @genres.each do |genre| %>
@@ -41,6 +41,9 @@
               </li>
               <li class="menu-list">
                 <i class="fas fa-paw"></i><%= link_to " イベント", events_path, class: "list" %>
+              </li>
+              <li class="menu-list">
+                <i class="fas fa-paw"></i><%= link_to " 気になるリスト", favorites_path, class: "list" %>
               </li>
               <li class="menu-list">
                 <i class="fas fa-paw"></i><%= link_to " お問い合わせ履歴", chats_path, class: "list" %>
@@ -76,7 +79,7 @@
                 <i class="fas fa-paw"></i><%= link_to " FosPaとは", about_path, class: "list" %>
               </li>
               <li class="nav-dropdown dropdown menu-list">
-                <i class="fas fa-paw"></i><a class="dropdown-toggle cursor list" data-toggle="dropdown"> 種類別パートナー検索
+                <i class="fas fa-paw"></i><a class="dropdown-toggle cursor list" data-toggle="dropdown"> 種別パートナー検索
                 </a>
                 <ul class="dropdown-menu" role="menu">
                   <% @genres.each do |genre| %>
@@ -138,6 +141,11 @@
           </div>
       </header><!-- /header -->
       <div class="container main">
+        <div>
+          <% if flash[:notice] %>
+          <%= flash[:notice] %>
+          <% end %>
+        </div>
         <%= yield %>
       </div>
       <footer>
