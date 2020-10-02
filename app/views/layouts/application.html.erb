@@ -12,14 +12,14 @@
   <body>
     <div class="wrapper">
       <header id="header" class="row">
-        <div class="logo col-xs-3">
+        <div class="logo col-xs-2 hover">
           <% if supply_user_signed_in? %>
             <%= link_to supply_users_path do %>
               <%= image_tag 'FosPa_logo_heart.png', :size => '245x130' %>
             <% end %>
           <% else %>
             <%= link_to root_path do %>
-              <%= image_tag 'FosPa_logo_heart.png', :size => '245x130' %>
+              <%= image_tag 'FosPa_logo_tail.png', :size => '245x130' %>
             <% end %>
           <% end %>
         </div>
@@ -35,7 +35,7 @@
                 </a>
                 <ul class="dropdown-menu">
                   <% @genres.each do |genre| %>
-                  <li><i class="fas fa-paw"><%= link_to genre.name, genre_path(genre), class: "dropmenu-link" %></i></li>
+                  <li><i class="fas fa-paw"> <%= link_to genre.name, genre_path(genre), class: "dropmenu-link" %></i></li>
                   <% end %>
                 </ul>
               </li>
@@ -76,7 +76,7 @@
               </li>
             <% else %>
               <li class="menu-list">
-                <i class="fas fa-paw"></i><%= link_to " FosPaとは", about_path, class: "list" %>
+                <i class="fas fa-paw"></i><%= link_to " FosPaとは！？", about_path, class: "list" %>
               </li>
               <li class="nav-dropdown dropdown menu-list">
                 <i class="fas fa-paw"></i><a class="dropdown-toggle cursor list" data-toggle="dropdown"> 種別パートナー検索
