@@ -1,0 +1,9 @@
+<% if @animal.favorited_by?(current_demand_user) %>
+  <%= link_to animal_favorite_path(@animal,current_demand_user), method: :delete, remote: true do %>
+    <span class="btn btn-danger">気になるリスト削除</span>
+  <% end %>
+<% else %>
+  <%= link_to animal_favorites_path(@animal), method: :post, remote: true do %>
+    <span class="btn btn-info">気になるリスト追加</span>
+  <% end %>
+<% end %>

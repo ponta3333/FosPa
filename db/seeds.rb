@@ -121,7 +121,7 @@ Bleed.create!(
 	)
 Bleed.create!(
 	genre_id: 1,
-	name: "ポメラミアン"
+	name: "ポメラニアン"
 	)
 Bleed.create!(
 	genre_id: 1,

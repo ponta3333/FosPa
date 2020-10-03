@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   get 'supply_users/supply_users/edit' => 'supply_users#edit'
   get 'supply_users/withdraw' => 'supply_users#withdraw'
 	patch 'supply_users/out' => 'supply_users#out'
+  get 'favorites' => 'favorites#index', as: :favorites
   resources :animals do
   	resources :favorites, only: [:create, :destroy]
   end
