@@ -1,0 +1,24 @@
+<div class="row">
+	<div class="text-center">
+		<h2><span class="underbar">FosPaへようこそ！</span></h2>
+		<p>このサイトは犬猫を家族として迎えたい方、もらい手を探している方を結ぶサイトです。</p>
+	</div>
+	<div class="text-center">
+		<h3>どちらご希望ですか？</h3>
+		<div>
+    	<%= link_to new_animal_path, class: "choice_left hover" do %>
+				<p>里親募集</p>
+     	<% end %>
+     	<%= link_to new_event_path, class: "choice_right hover" do %>
+				<p>イベント告知</p>
+     	<% end %>
+    <div class="index-space">
+    	<%= link_to animals_path, class: "choice_left hover" do %>
+				<p>里親募集一覧</p>
+     	<% end %>
+     	<%= link_to events_path, class: "choice_right hover" do %>
+				<p>イベント投稿一覧</p>
+     	<% end %>
+    </div>
+	</div>
+</div>

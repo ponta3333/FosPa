@@ -1,6 +1,6 @@
 <div class="row relative">
   <div class="col-xs-4">
-    <h2><span class="underbar">会員情報</span></h2>
+    <h2 class="title-left"><span class="underbar">会員情報</span></h2>
   </div>
   <div class="demand-link-position">
   	<%= link_to "編集", demand_users_demand_users_edit_path, class: "btn btn-default" %>
@@ -49,4 +49,7 @@
 			</tbody>
 		</table>
 	</div>
+</div>
+<div class="col-md-2 col-md-offset-9">
+	<%= link_to "退会する", demand_users_withdraw_path, class: "btn btn-danger btn-block" %>
 </div>

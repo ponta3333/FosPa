@@ -16,6 +16,15 @@ class SupplyUsersController < ApplicationController
   	end
   end
 
+  def withdraw
+  end
+
+  def out
+    current_supply_user.update(is_deleted: true)
+    reset_session
+    redirect_to root_path
+  end
+
   private
 
   def supply_user_params

@@ -6,15 +6,13 @@
 	<div class="text-center">
 		<h3>どちらをお探しですか？</h3>
 		<% @genres.each do |genre| %>
-    	<%= link_to genre_path(genre) do %>
-				<div class="choice hover">
+    	<%= link_to genre_path(genre), class: "choice hover" do %>
 					<i class="fas fa-paw"><%= genre.name %></i>
-     		</div>
      	<% end %>
     <% end %>
 	</div>
 	<div class="shintyaku">
-		<h3><span class="underbar">新着情報</span></h3>
+		<h3 class="title-left"><span class="underbar">新着情報</span></h3>
 		<div class="bxslider">
 			<% @animals.each do |animal| %>
 				<% if animal.sex == "オス" %>
@@ -40,7 +38,7 @@
 		</div>
 	</div>
 	<div class="shintyaku">
-		<h3><span class="underbar">新着イベント</span></h3>
+		<h3 class="title-left"><span class="underbar">新着イベント</span></h3>
 		<div class="bxslider">
 			<% @events.each do |event| %>
 				<div class="slidecontent_ev hover">
