@@ -68,6 +68,16 @@ class AnimalsController < ApplicationController
     end
   end
 
+  def destroy
+    @animal = Animal.find(params[:id])
+    if @animal.destroy
+      flash[:notice] = "募集を削除しました"
+      redirect_to animals_path
+    else
+      render :show
+    end
+  end
+
   private
 
   def animal_params
