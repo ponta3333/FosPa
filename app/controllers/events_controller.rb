@@ -1,5 +1,7 @@
 class EventsController < ApplicationController
 
+  before_action :authenticate_supply_user!, only: [:new, :create, :edit, :update, :destroy]
+
   def show
   	@event = Event.find(params[:id])
   end

@@ -45,7 +45,12 @@
 				</tr>
 				<tr>
 					<td class="category">募集元</td>
-					<td class="infomation"><%= @animal.supply_user.name %> さん</td>
+					<td class="infomation">
+						<%= @animal.supply_user.name %> さん
+						<% if current_demand_user %>
+							<%= link_to "お問い合わせ", supply_user_chats_path(@animal.supply_user_id), class: "btn btn-default" %>
+						<% end %>
+					</td>
 				</tr>
 			</tbody>
 		</table>
@@ -64,4 +69,3 @@
 			<% end %>
 	</div>
 </div>
-<%= link_to "お問い合わせ", supply_user_chats_path(@animal.supply_user_id) %>

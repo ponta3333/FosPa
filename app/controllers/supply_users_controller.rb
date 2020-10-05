@@ -1,4 +1,7 @@
 class SupplyUsersController < ApplicationController
+
+  before_action :authenticate_supply_user!
+
   def show
   end
 

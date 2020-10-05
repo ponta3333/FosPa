@@ -1,5 +1,7 @@
 class AnimalsController < ApplicationController
 
+  before_action :authenticate_supply_user!, only: [:new, :create, :edit, :update, :destroy]
+
   def show
   	@animal = Animal.find(params[:id])
   	@genre = Genre.find(@animal.bleed.genre_id)
@@ -7,14 +9,12 @@ class AnimalsController < ApplicationController
 
   def index
   	@animals = current_supply_user.animals.order(created_at: :desc).page(params[:page])
-    render :inde
   end
 
   def new
   	@animal = Animal.new
   	@bleed_dog = Bleed.where(genre_id: 1)
   	@bleed_cat = Bleed.where(genre_id: 2)
-    render :new
   end
 
   def create

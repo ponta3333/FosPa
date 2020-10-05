@@ -68,6 +68,7 @@ h2, h3 {
 }
 .main {
 	background: rgba(255,255,255,0.9);
+	min-height: 400px;
 	padding: 20px;
 	margin-bottom: 20px;
 	border-radius: 10px;
@@ -310,6 +311,7 @@ footer {
 /* --------一覧画面 layout--------  */
 .posted {
 	width: 250px;
+	height: 320px;
 	padding: 10px;
 	margin: 20px;
 	border-radius: 8px;
@@ -387,12 +389,15 @@ footer {
 }
 /* --------チャット画面--------  */
 .right_message {
-	font-size: 18px;
+	font-size: 17px;
 	background-color: #DDFFFF;
 	border-radius: 5px;
 }
 .left_message {
-	font-size: 18px;
+	font-size: 17px;
 	background-color: #99FF66;
 	border-radius: 5px;
+}
+.text-area {
+	font-size: 18px;
 }

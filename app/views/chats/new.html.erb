@@ -54,8 +54,8 @@
 <% end %>
 <%= form_for(@chat) do |f| %>
 <div class="row">
-	<div class="col-xs-6 col-xs-offset-3 index-space">
-		<%= f.text_area :message, class: "form-control" %>
+	<div class="col-xs-5 col-xs-offset-3 index-space">
+		<%= f.text_area :message, class: "form-control text-area" %>
 	</div>
 	<div class="col-xs-2">
 		<%= f.submit "送信",class: "btn btn-success index-space" %>
