@@ -1,0 +1,69 @@
+<div class="row">
+  <div class="col-xs-12">
+  	<% if current_demand_user %>
+    	<h3 class="title-left"><span class="underbar"><%= @supply_user.name %>さんとのメッセージ</span></h3>
+    <% elsif current_supply_user %>
+    	<h3 class="title-left"><span class="underbar"><%= @demand_user.nickname %>さんとのメッセージ</span></h3>
+    <% end %>
+  </div>
+</div>
+<% if @chats.exists? %>
+	<% @chats.each do |chat| %>
+		<div class="row">
+			<div class="col-xs-2 col-xs-offset-1 text-right">
+				<% if current_demand_user && @supply_user.name == chat.which_from %>
+					<p><%= chat.which_from %>さん</p>
+				<% elsif current_supply_user && @demand_user.nickname == chat.which_from %>
+					<p><%= chat.which_from %>さん</p>
+				<% end %>
+			</div>
+			<% if current_demand_user %>
+				<% if @supply_user.name == chat.which_from %>
+					<div class="col-xs-4 left_message">
+						<p>
+							<span class=""><%= chat.message %></span>
+						</p>
+					</div>
+				<% else %>
+					<div class="col-xs-4 col-xs-offset-2 right_message">
+						<p>
+							<span class=""><%= chat.message %></span>
+						</p>
+					</div>
+				<% end %>
+			<% end %>
+			<% if current_supply_user %>
+				<% if @demand_user.nickname == chat.which_from %>
+					<div class="col-xs-4">
+						<p>
+							<span class="left_message"><%= chat.message %></span>
+						</p>
+					</div>
+				<% else %>
+					<div class="col-xs-4 col-xs-offset-2">
+						<p>
+							<span class="right_message"><%= chat.message %></span>
+						</p>
+					</div>
+				<% end %>
+			<% end %>
+		</div>
+	<% end %>
+<% else %>
+	<h2 class="text-center">メッセージのやり取りはありません</h2>
+<% end %>
+<%= form_for(@chat) do |f| %>
+<div class="row">
+	<div class="col-xs-5 col-xs-offset-3 index-space">
+		<%= f.text_area :message, class: "form-control text-area" %>
+	</div>
+	<div class="col-xs-2">
+		<%= f.submit "送信",class: "btn btn-success index-space" %>
+	</div>
+</div>
+	<% if current_demand_user %>
+		<%= f.hidden_field :supply_user_id, :value => params[:supply_user_id] %>
+	<% elsif current_supply_user %>
+		<%= f.hidden_field :demand_user_id, :value => params[:demand_user_id] %>
+	<% end %>
+<% end %>

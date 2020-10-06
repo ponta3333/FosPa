@@ -56,8 +56,10 @@ body {
 	background-repeat: repeat-y;
 	}
 h2, h3 {
-	margin-left: 40px;
 	margin-bottom: 30px;
+}
+.title-left {
+	margin-left: 40px;
 }
 .wrapper {
 	min-height: 100vh;
@@ -66,6 +68,7 @@ h2, h3 {
 }
 .main {
 	background: rgba(255,255,255,0.9);
+	min-height: 400px;
 	padding: 20px;
 	margin-bottom: 20px;
 	border-radius: 10px;
@@ -308,6 +311,7 @@ footer {
 /* --------一覧画面 layout--------  */
 .posted {
 	width: 250px;
+	height: 320px;
 	padding: 10px;
 	margin: 20px;
 	border-radius: 8px;
@@ -354,4 +358,46 @@ footer {
 }
 .index-space {
 	margin-top: 30px;
+}
+.choice_left {
+	text-align: center;
+	line-height: 100px;
+	width: 25%;
+	height: 100px;
+	margin-right: 20px;
+	font-size: 23px;
+  color: #000;
+	background-color: #FF97C2;
+	border-radius: 50%;
+	display: inline-block;
+}
+.choice_right {
+	text-align: center;
+	line-height: 100px;
+	width: 25%;
+	height: 100px;
+	margin-left: 20px;
+	font-size: 23px;
+  color: #000;
+	background-color: #FF97C2;
+	border-radius: 50%;
+	display: inline-block;
+}
+/* --------退会画面--------  */
+.inline {
+	display: inline-block;
+}
+/* --------チャット画面--------  */
+.right_message {
+	font-size: 17px;
+	background-color: #DDFFFF;
+	border-radius: 5px;
+}
+.left_message {
+	font-size: 17px;
+	background-color: #99FF66;
+	border-radius: 5px;
+}
+.text-area {
+	font-size: 18px;
 }

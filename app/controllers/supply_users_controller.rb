@@ -1,4 +1,7 @@
 class SupplyUsersController < ApplicationController
+
+  before_action :authenticate_supply_user!
+
   def show
   end
 
@@ -14,6 +17,15 @@ class SupplyUsersController < ApplicationController
   	else
   		render :edit
   	end
+  end
+
+  def withdraw
+  end
+
+  def out
+    current_supply_user.update(is_deleted: true)
+    reset_session
+    redirect_to root_path
   end
 
   private

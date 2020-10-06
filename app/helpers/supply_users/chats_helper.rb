@@ -1,0 +1,2 @@
+module SupplyUsers::ChatsHelper
+end

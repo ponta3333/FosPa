@@ -1,5 +1,7 @@
 class AnimalsController < ApplicationController
 
+  before_action :authenticate_supply_user!, only: [:new, :create, :edit, :update, :destroy]
+
   def show
   	@animal = Animal.find(params[:id])
   	@genre = Genre.find(@animal.bleed.genre_id)

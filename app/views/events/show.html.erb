@@ -1,6 +1,6 @@
 <div class="row relative">
   <div class="col-xs-4">
-    <h2><span class="underbar">イベント詳細</span></h2>
+    <h2 class="title-left"><span class="underbar">イベント詳細</span></h2>
   </div>
   <div class="supply-link-position">
   	<% if current_supply_user == @event.supply_user %>
@@ -34,7 +34,12 @@
 				</tr>
 				<tr>
 					<td class="category">告知元</td>
-					<td class="infomation"><%= @event.supply_user.name %> さん</td>
+					<td class="infomation">
+						<%= @event.supply_user.name %> さん
+						<% if current_demand_user %>
+							<%= link_to "お問い合わせ", supply_user_chats_path(@event.supply_user_id), class: "btn btn-default" %>
+						<% end %>
+					</td>
 				</tr>
 			</tbody>
 		</table>
