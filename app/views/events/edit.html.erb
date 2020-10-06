@@ -4,6 +4,7 @@
   </div>
 </div>
 <%= form_for(@event, url: event_path(@event)) do |f| %>
+  <%= render 'layouts/error_messages', model: f.object %>
   <div class="row form-group">
     <div class="col-xs-4 col-xs-offset-1">
       <label class="control-label">イメージ画像</label><br />
@@ -21,7 +22,7 @@
       </div>
       <div class="row form-space">
         <div class="col-xs-9">
-          <label class="control-label">開催日時</label><br />
+          <label class="control-label">開催日</label><br />
           <%= f.date_select :day, {:use_month_numbers => true, :start_year => Time.now.year, :end_year => Time.now.year + 1, :default => Date.new(2020, 1, 1), :date_separator => '/'} %>
         </div>
       </div>

@@ -4,6 +4,7 @@
   </div>
 </div>
 <%= form_for(@demand_user, url: demand_user_path(current_demand_user)) do |f| %>
+  <%= render 'layouts/error_messages', model: f.object %>
   <div class="row form-space">
     <div class="col-xs-3 col-xs-offset-3">
       <label class="control-label">名前</label><br />

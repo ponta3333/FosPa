@@ -20,30 +20,22 @@
 			<% if current_demand_user %>
 				<% if @supply_user.name == chat.which_from %>
 					<div class="col-xs-4 left_message">
-						<p>
-							<span class=""><%= chat.message %></span>
-						</p>
+						<p><%= chat.message %></p>
 					</div>
 				<% else %>
 					<div class="col-xs-4 col-xs-offset-2 right_message">
-						<p>
-							<span class=""><%= chat.message %></span>
-						</p>
+						<p><%= chat.message %></p>
 					</div>
 				<% end %>
 			<% end %>
 			<% if current_supply_user %>
 				<% if @demand_user.nickname == chat.which_from %>
-					<div class="col-xs-4">
-						<p>
-							<span class="left_message"><%= chat.message %></span>
-						</p>
+					<div class="col-xs-4 left_message">
+						<p><%= chat.message %></p>
 					</div>
 				<% else %>
-					<div class="col-xs-4 col-xs-offset-2">
-						<p>
-							<span class="right_message"><%= chat.message %></span>
-						</p>
+					<div class="col-xs-4 col-xs-offset-2 right_message">
+						<p><%= chat.message %></p>
 					</div>
 				<% end %>
 			<% end %>

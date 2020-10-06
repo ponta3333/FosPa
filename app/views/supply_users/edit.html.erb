@@ -4,6 +4,7 @@
   </div>
 </div>
 <%= form_for(@supply_user, url: supply_user_path(current_supply_user)) do |f| %>
+  <%= render 'layouts/error_messages', model: f.object %>
   <div class="row form-group">
     <div class="col-xs-4 col-xs-offset-1">
       <label class="control-label">イメージ画像</label><br />

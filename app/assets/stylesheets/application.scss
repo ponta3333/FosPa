@@ -50,6 +50,11 @@
 	line-height: 100px;
 }
 /* --------body--------  */
+.alert {
+	width: 30%;
+	padding-left: 50px;
+	color: #FF3300;
+}
 body {
 	background-image: image-url('asiato.png');
 	background-size: 100% auto;
@@ -282,11 +287,11 @@ footer {
 	margin: 0 auto;
 }
 .category{
-	width: 30%;
+	width: 35%;
 	background-color: #FAFAD2;
 }
 .infomation{
-	width: 70%;
+	width: 65%;
 }
 /* --------ユーザー詳細 layout--------  */
 .relative {
