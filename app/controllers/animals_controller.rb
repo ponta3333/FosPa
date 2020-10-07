@@ -8,7 +8,14 @@ class AnimalsController < ApplicationController
   end
 
   def index
-  	@animals = current_supply_user.animals.order(created_at: :desc).page(params[:page])
+    if current_supply_user
+  	  @animals = current_supply_user.animals.order(created_at: :desc).page(params[:page])
+    elsif current_demand_user
+      @search_params = animal_search_params
+      @animals = Animal.search(@search_params).includes(:bleed).order(created_at: :desc).page(params[:page])
+      @bleed_dog = Bleed.where(genre_id: 1)
+      @bleed_cat = Bleed.where(genre_id: 2)
+    end
   end
 
   def new
@@ -84,6 +91,10 @@ class AnimalsController < ApplicationController
 
   def animal_params
   	params.require(:animal).permit(:supply_user_id, :image, :name, :sex, :age, :content, :animal_status)
+  end
+
+  def animal_search_params
+    params.fetch(:search, {}).permit(:name, :sex, :age, :dog_bleed_id, :cat_bleed_id)
   end
 
 end

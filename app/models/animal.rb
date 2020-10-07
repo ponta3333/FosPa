@@ -14,6 +14,22 @@ class Animal < ApplicationRecord
 
   attachment :image
 
+  scope :search, -> (search_params) do
+    return if search_params.blank?
+
+    name_like(search_params[:name])
+      .sex_is(search_params[:sex])
+      .age_is(search_params[:age])
+      .dog_bleed_id_is(search_params[:dog_bleed_id])
+      .cat_bleed_id_is(search_params[:cat_bleed_id])
+  end
+  scope :name_like, -> (name) { where('name LIKE ?', "%#{name}%") if name.present? }
+  scope :sex_is, -> (sex) { where(sex: sex) if sex.present? }
+  scope :age_is, -> (age) { where(age: age) if age.present? }
+  scope :dog_bleed_id_is, -> (bleed_id) { where(bleed_id: bleed_id) if bleed_id.present? }
+  scope :cat_bleed_id_is, -> (bleed_id) { where(bleed_id: bleed_id) if bleed_id.present? }
+
+
   def favorited_by?(demand_user)
     favorites.where(demand_user_id: demand_user.id).exists?
   end
