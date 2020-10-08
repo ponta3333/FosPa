@@ -16,7 +16,17 @@ DemandUser.create!(
 	phone: "12345678910",
 	email: "satooya@satooya",
 	password: "123456",
-  password_confirmation: "123456",
+  	password_confirmation: "123456",
+	)
+SupplyUser.create!(
+	name: "里親太郎",
+	name_kana: "サトオヤタロウ",
+	postal_code: "1234567",
+	address: "東京都千代田区霞ヶ関",
+	phone: "12345678910",
+	email: "satooya@satooya",
+	password: "123456",
+  	password_confirmation: "123456",
 	)
 Genre.create!(
 	name: "犬"
