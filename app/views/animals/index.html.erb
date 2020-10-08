@@ -1,13 +1,13 @@
 <div class="row">
-	<% if current_demand_user %>
+	<% unless current_supply_user %>
 		<h2 class="title-left"><span class="underbar">犬猫詳細検索</span></h2>
-	<% elsif current_supply_user %>
+	<% else %>
 		<h2 class="title-left"><span class="underbar">募集一覧</span></h2>
 	<% end %>
-	<% if current_demand_user %>
+	<% unless current_supply_user %>
 		<%= form_with(scope: :search, url: animals_path, method: :get, local: true) do |f| %>
 		  <div class="row form-group">
-		    <div class="col-xs-7 col-xs-offset-2">
+		    <div class="col-md-7 col-md-offset-4 col-xs-7 col-xs-offset-3">
 		      <div class="row form-space">
 		        <div class="col-xs-3">
 		          <label class="control-label">名前</label>
@@ -30,7 +30,10 @@
 		          <div class="row">
 		            <label class="col-xs-2"><input type="radio" name="genre_radio" value="1"> 犬</label>
 		            <label class="col-xs-2"><input type="radio" name="genre_radio" value="2"> 猫</label>
-		            <%= button_tag '決定', type: 'button', id:"kettei" %>
+		            <label class="col-xs-2"><%= button_tag '決定', type: 'button', id:"kettei" %></label>
+				        <div class="col-xs-3">
+				          </i><%= f.submit "検索", class: "btn btn-info" %>
+				        </div>
 		          </div>
 		        </div>
 		      </div>
@@ -42,11 +45,6 @@
 		          <div class="cat_select">
 		            <%= f.collection_select :cat_bleed_id, @bleed_cat, :id, :name, class: "form-control", prompt:"------選択して下さい------", value: @search_params[:bleed_id] %>
 		          </div>
-		        </div>
-		      </div>
-		     <div class="row form-space">
-		        <div class="col-xs-3">
-		          </i><%= f.submit "検索", class: "btn btn-info" %>
 		        </div>
 		      </div>
 		    </div>
@@ -66,4 +64,11 @@
 			<% end %>
 		</div>
 	</div>
+</div>
+<div class="row">
+  <div class="col-xs-8 col-md-offset-2">
+    <div class="text-center">
+      <%= paginate @animals %>
+    </div>
+  </div>
 </div>

@@ -16,7 +16,7 @@
       <div class="row form-space">
         <div class="col-xs-9">
           <label class="control-label">開催日</label><br />
-          <%= f.date_select :day, {:use_month_numbers => true, :start_year => Time.now.year, :end_year => Time.now.year + 1, :default => Date.new(2020, 1, 1), :date_separator => '/'} %>
+          <%= f.date_field :day %>
         </div>
       </div>
       <div class="row form-space">
