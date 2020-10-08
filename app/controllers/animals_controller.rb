@@ -41,7 +41,7 @@ class AnimalsController < ApplicationController
   	@bleed_dog = Bleed.where(genre_id: 1)
   	@bleed_cat = Bleed.where(genre_id: 2)
   	if @animal.save
-  		flash[:notice] = "募集完了しました"
+  		flash[:notice] = "募集完了しました。"
   		redirect_to animals_path
   	else
   		render :new
@@ -70,7 +70,7 @@ class AnimalsController < ApplicationController
     @bleed_dog = Bleed.where(genre_id: 1)
     @bleed_cat = Bleed.where(genre_id: 2)
     if @animal.update(animal_params)
-      flash[:notice] = "編集完了しました"
+      flash[:notice] = "編集完了しました。"
       redirect_to animal_path(@animal)
     else
       render :edit
@@ -80,7 +80,7 @@ class AnimalsController < ApplicationController
   def destroy
     @animal = Animal.find(params[:id])
     if @animal.destroy
-      flash[:notice] = "募集を削除しました"
+      flash[:notice] = "募集を削除しました。"
       redirect_to animals_path
     else
       render :show

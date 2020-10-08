@@ -2,13 +2,13 @@
 	<h2 class="title-left"><span class="underbar">犬猫別一覧（<%= @genre.name %>）</span></h2>
 	<h4 class="col-xs-2 col-xs-offset-3 text-right">絞り込み</h4>
 	<div class="col-xs-1">
-		<%= link_to '両方', genre_path(params[:id]), class: "choice_both" %>
+		<%= link_to '両方', genre_path(params[:id]), class: "choice_both hover" %>
 	</div>
 	<div class="col-xs-1">
-		<%= link_to 'オス', genre_path(params[:id], sex: "オス"), class: "choice_male" %>
+		<%= link_to 'オス', genre_path(params[:id], sex: "オス"), class: "choice_male hover" %>
 	</div>
 	<div class="col-xs-1">
-			<%= link_to 'メス', genre_path(params[:id], sex: "メス"), class: "choice_female" %>
+			<%= link_to 'メス', genre_path(params[:id], sex: "メス"), class: "choice_female hover" %>
 	</div>
 </div>
 <div class="row text-center index-space">

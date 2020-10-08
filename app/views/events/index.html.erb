@@ -2,7 +2,7 @@
 	<h2 class="title-left"><span class="underbar">イベント</span></h2>
 	<% unless current_supply_user %>
 		<%= form_with(scope: :search, url: events_path, method: :get, local: true) do |f| %>
-			<div class="col-md-11 col-md-offset-1 col-xs-10 col-xs-offset-2">
+			<div class="col-md-11 col-md-offset-1 col-xs-10 col-xs-offset-1">
 				<div class="row form-space">
 					<div class="col-xs-6">
 						<label class="control-label">イベント名</label>
@@ -10,7 +10,7 @@
 					</div>
 				</div>
 				<div class="row form-space">
-					<div class="col-md-3 col-xs-4">
+					<div class="col-md-3 col-xs-5">
 						<label class="control-label">開催日</label>
 						<%= f.date_field :day %>
 					</div>
@@ -18,7 +18,7 @@
 						<label class="control-label">開催地域</label>
 						<%= f.select :prefecture, Event.prefectures.keys, value: @search_params[:prefecture], prompt: "--選択してください--" %>
 					</div>
-					<div class="col-md-2 col-xs-3">
+					<div class="col-md-2 col-xs-2">
 						<%= f.submit "検索", class: "btn btn-info" %>
 					</div>
 				</div>

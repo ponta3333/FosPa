@@ -7,11 +7,11 @@
 	<% unless current_supply_user %>
 		<%= form_with(scope: :search, url: animals_path, method: :get, local: true) do |f| %>
 		  <div class="row form-group">
-		    <div class="col-md-7 col-md-offset-4 col-xs-7 col-xs-offset-3">
+		    <div class="col-md-9 col-md-offset-2 col-xs-10 col-xs-offset-2">
 		      <div class="row form-space">
-		        <div class="col-xs-3">
+		        <div class="col-md-4 col-xs-5">
 		          <label class="control-label">名前</label>
-		          <%= f.text_field :name, class: "form-control", placeholder: "ポチ", value: @search_params[:name] %>
+		          <%= f.text_field :name, class: "form-control", autofocus: true, placeholder: "ポチ", value: @search_params[:name] %>
 		        </div>
 		      </div>
 		      <div class="row form-space">
@@ -24,14 +24,14 @@
 		          <%= f.select :age, Animal.ages.keys, class: "form-control", prompt:"---選択して下さい---", value: @search_params[:age] %>
 		        </div>
 		      </div>
-		      <div class="row form-space">
+		      <div class="row">
 		        <div class="col-xs-12">
 		          <label class="control-label">種類 <span class="explanation">(いずれかを選択,決定後に犬種または猫種を選択)</span></label>
 		          <div class="row">
-		            <label class="col-xs-2"><input type="radio" name="genre_radio" value="1"> 犬</label>
-		            <label class="col-xs-2"><input type="radio" name="genre_radio" value="2"> 猫</label>
-		            <label class="col-xs-2"><%= button_tag '決定', type: 'button', id:"kettei" %></label>
-				        <div class="col-xs-3">
+		            <label class="col-md-2 col-xs-2"><input type="radio" name="genre_radio" value="1"> 犬</label>
+		            <label class="col-md-2 col-xs-2"><input type="radio" name="genre_radio" value="2"> 猫</label>
+		            <label class="col-md-2 col-xs-4"><%= button_tag '決定', type: 'button', id:"kettei" %></label>
+				        <div class="col-md-3 col-xs-3">
 				          </i><%= f.submit "検索", class: "btn btn-info" %>
 				        </div>
 		          </div>
