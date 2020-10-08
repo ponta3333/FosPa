@@ -50,6 +50,11 @@
 	line-height: 100px;
 }
 /* --------body--------  */
+.flash {
+	width: 30%;
+	font-size: 18px;
+	background-color: #FF9872;
+}
 .alert {
 	width: 30%;
 	padding-left: 50px;
@@ -405,4 +410,8 @@ footer {
 }
 .text-area {
 	font-size: 18px;
+}
+/* --------犬猫詳細検索画面--------  */
+.explanation {
+	color: #777777;
 }
