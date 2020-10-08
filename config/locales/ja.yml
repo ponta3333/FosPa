@@ -1,0 +1,41 @@
+ja:
+  activerecord:
+    models:
+      event: イベント
+      animal: 動物
+      demand_user: 一般会員
+      supply_user: 募集会員
+    attributes:
+      event:
+        name: イベント名
+        prefecture: 開催地域
+        place: 開催場所
+        day: 開催日
+        content: イベント内容
+      animal:
+        name: 名前
+        sex: 性別
+        age: 年齢
+        bleed: 種類
+        content: 紹介文
+      demand_user:
+        name: 名前
+        name_kana: フリガナ
+        nickname: ニックネーム
+        email: メールアドレス
+        postal_code: 郵便番号
+        address: 住所
+        phone: 電話番号
+        age: 年齢
+        job: 職業
+        password: パスワード
+        password_confirmation: 確認用パスワード
+      supply_user:
+        name: 名前または法人名
+        name_kana: フリガナ
+        email: メールアドレス
+        postal_code: 郵便番号
+        address: 住所または所在地
+        phone: 電話番号
+        password: パスワード
+        password_confirmation: 確認用パスワード

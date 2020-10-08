@@ -74,6 +74,9 @@ gem 'jquery-rails'
 gem 'pry-byebug'
 gem 'dotenv-rails'
 gem 'bxslider-rails'
+gem 'rails-i18n'
+gem 'devise-i18n'
+gem 'devise-i18n-views'
 group :production do
   gem 'mysql2'
 end
