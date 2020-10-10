@@ -12,7 +12,7 @@ class ChatsController < ApplicationController
   		@chat.which_from = current_supply_user.name
   	end
   	if @chat.save
-  		flash[:notice] = "メッセージを投稿しました"
+  		flash[:notice] = "メッセージを投稿しました。"
   		redirect_to request.referer
   	else
   		render :new

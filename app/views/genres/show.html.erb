@@ -1,5 +1,11 @@
 <div class="row">
-	<h2 class="title-left"><span class="underbar">パートナー検索（<%= @genre.name %>）</span></h2>
+	<h2 class="title-left"><span class="underbar">犬猫別一覧（<%= @genre.name %>）</span></h2>
+	<div class="text-center">
+		<h4 class="choice_title">絞り込み</h4>
+		<%= link_to "両方", genre_path(params[:id]), class: "hover choice_both" %>
+		<%= link_to "オス", genre_path(params[:id], sex: "オス"), class: "choice_male hover" %>
+		<%= link_to "メス", genre_path(params[:id], sex: "メス"), class: "choice_female hover" %>
+	</div>
 	<div class="col-xs-12 text-center index-space">
 		<div class="row">
 			<% if @animals.exists? %>

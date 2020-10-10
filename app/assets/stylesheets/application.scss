@@ -227,8 +227,8 @@ footer {
 	padding: 10px 0;
 	text-align: center;
 	border-radius: 8px;
-	background-color: #EEE;
-	border: 2px solid #CCC;
+	background-color: #FFE;
+	border: 2px solid #DDD;
 }
 .slidecontent_an {
 	width: 250px;
@@ -325,8 +325,8 @@ footer {
 	padding: 10px;
 	margin: 20px;
 	border-radius: 8px;
-	background-color: #EEE;
-	border: 2px solid #CCC;
+	background-color: #FFE;
+	border: 2px solid #DDD;
 }
 .image {
 	border-radius: 8px;
@@ -392,6 +392,45 @@ footer {
 	background-color: #FF97C2;
 	border-radius: 50%;
 	display: inline-block;
+}
+.choice_title {
+  display: inline-block;
+  margin-right: 10px;
+}
+.choice_both {
+  text-align: center;
+  line-height: 38px;
+  width: 70px;
+  height: 38px;
+  margin-right: 10px;
+  font-size: 17px;
+  color: #000;
+  background-color: #DDD;
+  border-radius: 50%;
+  display: inline-block;
+}
+.choice_male {
+  text-align: center;
+  line-height: 38px;
+  width: 70px;
+  height: 38px;
+  margin-right: 10px;
+  font-size: 17px;
+  color: #000;
+  background-color: #D7EEFF;
+  border-radius: 50%;
+  display: inline-block;
+}
+.choice_female {
+  text-align: center;
+  line-height: 38px;
+  width: 70px;
+  height: 38px;
+  font-size: 17px;
+  color: #000;
+  background-color: #FFE4E1;
+  border-radius: 50%;
+  display: inline-block;
 }
 /* --------退会画面--------  */
 .inline {

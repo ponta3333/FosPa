@@ -22,4 +22,15 @@ class Event < ApplicationRecord
 
   attachment :image
 
+  scope :search, -> (search_params) do
+    return if search_params.blank?
+
+    name_like(search_params[:name])
+      .day_is(search_params[:day])
+      .prefecture_is(search_params[:prefecture])
+  end
+  scope :name_like, -> (name) { where('name LIKE ?', "%#{name}%") if name.present? }
+  scope :day_is, -> (day) { where(day: day) if day.present? }
+  scope :prefecture_is, -> (prefecture) { where(prefecture: prefecture) if prefecture.present? }
+
 end

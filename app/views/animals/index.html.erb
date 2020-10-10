@@ -1,10 +1,10 @@
 <div class="row">
-	<% if current_demand_user %>
+	<% unless current_supply_user %>
 		<h2 class="title-left"><span class="underbar">犬猫詳細検索</span></h2>
-	<% elsif current_supply_user %>
+	<% else %>
 		<h2 class="title-left"><span class="underbar">募集一覧</span></h2>
 	<% end %>
-	<% if current_demand_user %>
+	<% unless current_supply_user %>
 		<%= form_with(scope: :search, url: animals_path, method: :get, local: true) do |f| %>
 		  <div class="row form-group">
 		    <div class="col-xs-7 col-xs-offset-2">
@@ -26,7 +26,7 @@
 		      </div>
 		      <div class="row form-space">
 		        <div class="col-xs-12">
-		          <label class="control-label">種類 <span class="explanation">(いずれかを選択,決定後に犬種または猫種を選択)</span></label>
+		          <label class="control-label">種類 <span class="explanation">(犬猫いずれかを選択,決定後に種類を選択)</span></label>
 		          <div class="row">
 		            <label class="col-xs-2"><input type="radio" name="genre_radio" value="1"> 犬</label>
 		            <label class="col-xs-2"><input type="radio" name="genre_radio" value="2"> 猫</label>
