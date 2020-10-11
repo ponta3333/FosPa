@@ -227,8 +227,8 @@ footer {
 	padding: 10px 0;
 	text-align: center;
 	border-radius: 8px;
-	background-color: #EEE;
-	border: 2px solid #CCC;
+	background-color: #FFE;
+	border: 2px solid #DDD;
 }
 .slidecontent_an {
 	width: 250px;
@@ -323,10 +323,10 @@ footer {
 	width: 250px;
 	height: 320px;
 	padding: 10px;
-	margin: 20px;
+	margin: 10px 0 10px 37px;
 	border-radius: 8px;
-	background-color: #EEE;
-	border: 2px solid #CCC;
+	background-color: #FFE;
+	border: 2px solid #DDD;
 }
 .image {
 	border-radius: 8px;
@@ -393,6 +393,39 @@ footer {
 	border-radius: 50%;
 	display: inline-block;
 }
+.choice_both {
+	text-align: center;
+	line-height: 35px;
+	width: 50px;
+	height: 35px;
+	font-size: 15px;
+  color: #000;
+	background-color: #C0C0C0;
+	border-radius: 50%;
+	display: inline-block;
+}
+.choice_male {
+	text-align: center;
+	line-height: 35px;
+	width: 50px;
+	height: 35px;
+	font-size: 15px;
+  color: #000;
+	background-color: #D7EEFF;
+	border-radius: 50%;
+	display: inline-block;
+}
+.choice_female {
+	text-align: center;
+	line-height: 35px;
+	width: 50px;
+	height: 35px;
+	font-size: 15px;
+  color: #000;
+	background-color: #FFE4E1;
+	border-radius: 50%;
+	display: inline-block;
+}
 /* --------退会画面--------  */
 .inline {
 	display: inline-block;
@@ -414,4 +447,44 @@ footer {
 /* --------犬猫詳細検索画面--------  */
 .explanation {
 	color: #777777;
+}
+@media screen and (max-width: 1024px) {
+	#sp-menu {
+	  padding: 10px;
+	  font-size: 16px;
+	  position: fixed;
+	  top: 5%;
+	  right: 2%;
+	  background: #000;
+	  color: #fff;
+	  width: 20%;
+	  min-height: 25%;
+	  display: none;
+	  z-index: 9;
+}
+		.animalmale {
+		width: 270px;
+		height: 330px;
+		padding: 10px;
+		margin: 10px 0 10px 65px;
+		border-radius: 8px;
+		background-color: #D7EEFF;
+	}
+	.animalfemale {
+		width: 270px;
+		height: 330px;
+		padding: 10px;
+		margin: 10px 0 10px 65px;
+		border-radius: 8px;
+		background-color: #FFE4E1;
+	}
+	.posted {
+	width: 250px;
+	height: 320px;
+	padding: 10px;
+	margin: 10px 0 10px 90px;
+	border-radius: 8px;
+	background-color: #EEF;
+	border: 2px solid #DDD;
+}
 }

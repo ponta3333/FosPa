@@ -7,12 +7,11 @@ class EventsController < ApplicationController
   end
 
   def index
-  	if demand_user_signed_in?
-  		@events = Event.order(day: :desc).page(params[:page]).reverse_order
-  	elsif supply_user_signed_in?
+  	if current_supply_user
   		@events = current_supply_user.events.order(day: :desc).page(params[:page]).reverse_order
     else
-      @events = Event.order(day: :desc).page(params[:page]).reverse_order
+      @search_params = event_search_params
+      @events = Event.search(@search_params).order(day: :desc).page(params[:page]).reverse_order
   	end
   end
 
@@ -24,7 +23,7 @@ class EventsController < ApplicationController
   	@event = Event.new(event_params)
   	@event.supply_user_id = current_supply_user.id
   	if @event.save
-  		flash[:notice] = "イベントを作成しました"
+  		flash[:notice] = "イベントを作成しました。"
   		redirect_to event_path(@event)
   	else
   		render :new
@@ -38,7 +37,7 @@ class EventsController < ApplicationController
   def update
   	@event = Event.find(params[:id])
   	if @event.update(event_params)
-  		flash[:notice] = "イベント内容を編集しました"
+  		flash[:notice] = "イベント内容を編集しました。"
   		redirect_to event_path(@event)
   	else
   		render :edit
@@ -48,14 +47,18 @@ class EventsController < ApplicationController
   def destroy
   	@event = Event.find(params[:id])
   	@event.destroy
-  	flash[:notice] = "イベントを削除しました"
+  	flash[:notice] = "イベントを削除しました。"
   	redirect_to events_path
   end
 
   private
 
   def event_params
-  	params.require(:event).permit(:name, :day,:prefecture, :place, :content, :image)
+  	params.require(:event).permit(:name, :day, :prefecture, :place, :content, :image)
+  end
+
+  def event_search_params
+    params.fetch(:search, {}).permit(:name, :day, :prefecture)
   end
 
 end

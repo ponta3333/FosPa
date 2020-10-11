@@ -29,7 +29,6 @@ class Animal < ApplicationRecord
   scope :dog_bleed_id_is, -> (bleed_id) { where(bleed_id: bleed_id) if bleed_id.present? }
   scope :cat_bleed_id_is, -> (bleed_id) { where(bleed_id: bleed_id) if bleed_id.present? }
 
-
   def favorited_by?(demand_user)
     favorites.where(demand_user_id: demand_user.id).exists?
   end
