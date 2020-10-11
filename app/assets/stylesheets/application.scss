@@ -323,7 +323,7 @@ footer {
 	width: 250px;
 	height: 320px;
 	padding: 10px;
-	margin: 20px;
+	margin: 10px 20px;
 	border-radius: 8px;
 	background-color: #FFE;
 	border: 2px solid #DDD;
@@ -453,4 +453,52 @@ footer {
 /* --------犬猫詳細検索画面--------  */
 .explanation {
 	color: #777777;
+}
+@media screen and (max-width: 1024px) {
+  #sp-menu {
+  padding: 10px;
+  font-size: 20px;
+  position: fixed;
+  top: 5%;
+  right: 2%;
+  background: #000;
+  color: #fff;
+  width: 24%;
+  min-height: 25%;
+  display: none;
+  z-index: 9;
+  }
+  .welcome {
+  position: absolute;
+  right: 13%;
+  }
+  .posted {
+  width: 250px;
+  height: 320px;
+  padding: 10px;
+  margin: 10px 0 10px 78px;
+  border-radius: 8px;
+  background-color: #FFE;
+  border: 2px solid #DDD;
+  }
+  .animalmale {
+  width: 270px;
+  height: 330px;
+  padding: 10px;
+  margin: 10px 0 10px 65px;
+  border-radius: 8px;
+  background-color: #D7EEFF;
+  }
+.animalfemale {
+  width: 270px;
+  height: 330px;
+  padding: 10px;
+  margin: 10px 0 10px 65px;
+  border-radius: 8px;
+  background-color: #FFE4E1;
+  }
+  .explanation {
+  color: #777777;
+  font-size: 10px;
+  }
 }
