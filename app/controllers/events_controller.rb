@@ -64,7 +64,3 @@ class EventsController < ApplicationController
   end
 
 end
-params.fetch(:search, {}).permit(:name, :day, :prefecture)
-  end
-
-end
