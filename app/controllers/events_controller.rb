@@ -8,12 +8,10 @@ class EventsController < ApplicationController
 
   def index
   	if current_supply_user
-  		@events = current_supply_user.events.order(day: :desc).page(params[:page])
+  		@events = current_supply_user.events.order(day: :desc).page(params[:page]).reverse_order
     else
       @search_params = event_search_params
-      @events = Event.search(@search_params)
-                       .order(created_at: :desc)
-                       .page(params[:page])
+      @events = Event.search(@search_params).order(day: :desc).page(params[:page]).reverse_order
   	end
   end
 
@@ -56,7 +54,11 @@ class EventsController < ApplicationController
   private
 
   def event_params
-  	params.require(:event).permit(:name, :day,:prefecture, :place, :content, :image)
+  	params.require(:event).permit(:name, :day, :prefecture, :place, :content, :image)
+  end
+
+  def event_search_params
+    params.fetch(:search, {}).permit(:name, :day, :prefecture)
   end
 
   def event_search_params

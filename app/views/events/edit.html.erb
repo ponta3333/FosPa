@@ -6,9 +6,9 @@
 <%= form_for(@event, url: event_path(@event)) do |f| %>
   <%= render 'layouts/error_messages', model: f.object %>
   <%= render 'events/event_form', f: f, event: @event %>
-    <div class="row form-space">
-      <div class="col-md-3 col-md-offset-5 col-xs-4 col-xs-offset-6">
-        <%= f.submit "編集完了", class: "btn btn-info" %>
-      </div>
+  <div class="row form-space">
+    <div class="col-md-3 col-md-offset-5 col-xs-4 col-xs-offset-6">
+      <%= f.submit "登録", class: "btn btn-default" %>
     </div>
+  </div>
 <% end %>

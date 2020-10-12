@@ -7,8 +7,8 @@
   <%= render 'layouts/error_messages', model: f.object %>
   <%= render 'animals/animal_form', f: f, animal: @animal, bleed_dog: @bleed_dog, bleed_cat: @bleed_cat %>
   <div class="row form-space">
-    <div class="col-md-3 col-md-offset-5 col-xs-3 col-xs-offset-6">
-      </i><%= f.submit "募集する", class: "btn btn-info" %>
+    <div class="col-md-3 col-md-offset-5 col-xs-4 col-xs-offset-6">
+      <%= f.submit "募集する", class: "btn btn-info" %>
     </div>
   </div>
 <% end %>

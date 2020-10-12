@@ -1,30 +1,30 @@
 <div class="row">
 	<h2 class="title-left"><span class="underbar">イベント</span></h2>
-  <%= form_with(scope: :search, url: events_path, method: :get, local: true) do |f| %>
-    <div class="col-xs-11 col-xs-offset-1">
-      <div class="row form-space">
-        <div class="col-md-4 col-xs-5">
-          <label class="control-label">イベント名</label>
-          <%= f.text_field :name, autofocus: true, class: "form-control", placeholder: "保護犬・猫譲渡会" %>
-        </div>
-      </div>
-      <div class="row form-space">
-        <div class="col-md-3 col-xs-5">
-          <label class="control-label">開催日</label>
-          <%= f.date_field :day %>
-        </div>
-        <div class="col-md-3 col-xs-5">
-          <label class="control-label">開催地域</label>
-          <%= f.select :prefecture, Event.prefectures.keys, prompt: "---選択してください---" %>
-        </div>
-        <div class="col-md-2 col-xs-2">
-          <%= f.submit "検索", class: "btn btn-info" %>
-        </div>
-      </div>
-    </div>
-  <% end %>
-</div>
-<div class="row">
+	<% unless current_supply_user %>
+		<%= form_with(scope: :search, url: events_path, method: :get, local: true) do |f| %>
+			<div class="col-md-11 col-md-offset-1 col-xs-10 col-xs-offset-1">
+				<div class="row form-space">
+					<div class="col-xs-6">
+						<label class="control-label">イベント名</label>
+						<%= f.text_field :name, autofocus: true, class: "form-control", placeholder: "保護犬・猫譲渡会", value: @search_params[:name] %>
+					</div>
+				</div>
+				<div class="row form-space">
+					<div class="col-md-3 col-xs-5">
+						<label class="control-label">開催日</label>
+						<%= f.date_field :day %>
+					</div>
+					<div class="col-md-3 col-xs-5">
+						<label class="control-label">開催地域</label>
+						<%= f.select :prefecture, Event.prefectures.keys, value: @search_params[:prefecture], prompt: "--選択してください--" %>
+					</div>
+					<div class="col-md-2 col-xs-2">
+						<%= f.submit "検索", class: "btn btn-info" %>
+					</div>
+				</div>
+			</div>
+		<% end %>
+	<% end %>
 	<div class="col-xs-12 text-center index-space">
 		<div class="row">
 			<% if @events.exists? %>
@@ -39,16 +39,19 @@
 					</div>
 				<% end %>
 			<% else %>
-				<h3>イベントが投稿されていません</h3>
+				<% if current_supply_user %>
+					<h3>イベントが投稿されていません</h3>
+				<% else %>
+					<h3>イベントがありません</h3>
+				<% end %>
 			<% end %>
 		</div>
 	</div>
 </div>
 <div class="row">
-  <div class="col-xs-8 col-md-offset-2">
-    <div class="text-center">
-      <%= paginate @events %>
-    </div>
-  </div>
+	<div class="col-xs-8 col-md-offset-2">
+		<div class="text-center">
+			<%= paginate @events %>
+		</div>
+	</div>
 </div>
-

@@ -47,11 +47,11 @@
   </div>
   <div class="row form-space">
     <div class="col-md-2 col-md-offset-3 col-xs-3 col-xs-offset-3">
-      <label class="control-label">年齢</label>
+      <label class="control-label">年齢</label><br />
       <%= f.select :age, DemandUser.ages.keys, autocomplete: "age", class: "form-control", prompt:"---選択して下さい---" %>
     </div>
     <div class="col-md-2 col-xs-3">
-      <label class="control-label">職業</label>
+      <label class="control-label">職業</label><br />
       <%= f.select :job, DemandUser.jobs.keys, autocomplete: "job", class: "form-control", prompt:"---選択して下さい---" %>
     </div>
   </div>
@@ -66,7 +66,7 @@
           <%= f.password_field :password, autocomplete: "new-password", class: "form-control", placeholder: "●●●●●●" %>
         </div>
         <div class="col-md-4 col-xs-5">
-          <label class="control-label">パスワード確認用</label>
+          <label class="control-label">パスワード確認用</label><br />
           <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", placeholder: "●●●●●●" %>
         </div>
       </div>
