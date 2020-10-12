@@ -61,4 +61,8 @@ class EventsController < ApplicationController
     params.fetch(:search, {}).permit(:name, :day, :prefecture)
   end
 
+  def event_search_params
+    params.fetch(:search, {}).permit(:name, :day, :prefecture)
+  end
+
 end

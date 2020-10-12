@@ -70,10 +70,19 @@ $(document).on('turbolinks:load', function() {
       maxSlides: 4,         // 一度に表示させる最大数
       minSlides: 4,         // 一度に表示させる最小数
       slideWidth: 250,      // 各スライドの幅
-      touchEnabled: false,   // モバイルデバイスのタッチ、スワイプに反応
+      touchEnabled: false,  // モバイルデバイスのタッチ、スワイプに反応
       responsive: true,     // レスポンシブ
       randomStart: true,    // 最初に表示するスライドをランダムに設定
       autoHover: true       // ホバー時に自動スライドを停止
     });
+  });
+});
+//住所自動入力
+$(document).on('turbolinks:load', function() {
+  $("#user_postal_code").jpostal({
+    postcode : ["#user_postal_code"],
+    address : {
+                "#user_address" : "%3%4%5%6%7"
+              }
   });
 });

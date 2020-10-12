@@ -8,13 +8,19 @@ class AnimalsController < ApplicationController
   end
 
   def index
-    if current_supply_user
-  	  @animals = current_supply_user.animals.order(created_at: :desc).page(params[:page])
-    elsif current_demand_user
       @search_params = animal_search_params
-      @animals = Animal.search(@search_params).includes(:bleed).order(created_at: :desc).page(params[:page])
       @bleed_dog = Bleed.where(genre_id: 1)
       @bleed_cat = Bleed.where(genre_id: 2)
+    if current_supply_user
+  	  @animals = current_supply_user.animals.search(@search_params)
+                                            .includes(:bleed)
+                                            .order(created_at: :desc)
+                                            .page(params[:page])
+    else
+      @animals = Animal.search(@search_params)
+                       .includes(:bleed)
+                       .order(created_at: :desc)
+                       .page(params[:page])
     end
   end
 
