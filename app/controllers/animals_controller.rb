@@ -48,7 +48,7 @@ class AnimalsController < ApplicationController
   	@bleed_cat = Bleed.where(genre_id: 2)
   	if @animal.save
   		flash[:notice] = "募集完了しました。"
-  		redirect_to animals_path
+  		redirect_to animal_path(@animal)
   	else
   		render :new
   	end
