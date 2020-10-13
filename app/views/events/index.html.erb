@@ -1,5 +1,9 @@
 <div class="row">
-  <h2 class="title-left"><span class="underbar">イベント</span></h2>
+  <% unless current_supply_user %>
+    <h2 class="title-left"><span class="underbar">イベント一覧</span></h2>
+  <% else %>
+    <h2 class="title-left"><span class="underbar">イベント投稿履歴</span></h2>
+  <% end %>
   <%= form_with(scope: :search, url: events_path, method: :get, local: true) do |f| %>
     <div class="col-xs-11 col-xs-offset-1">
       <div class="row form-space">
@@ -39,7 +43,11 @@
           </div>
         <% end %>
       <% else %>
-        <h3>イベントが投稿されていません</h3>
+        <% if current_supply_user %>
+          <h3>イベントが投稿されていません</h3>
+        <% else %>
+          <h3>イベントがありません</h3>
+        <% end %>
       <% end %>
     </div>
   </div>
