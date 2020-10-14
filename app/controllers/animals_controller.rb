@@ -8,9 +8,9 @@ class AnimalsController < ApplicationController
   end
 
   def index
-      @search_params = animal_search_params
-      @bleed_dog = Bleed.where(genre_id: 1)
-      @bleed_cat = Bleed.where(genre_id: 2)
+    @search_params = animal_search_params
+    @bleed_dog = Bleed.where(genre_id: 1)
+    @bleed_cat = Bleed.where(genre_id: 2)
     if current_supply_user
   	  @animals = current_supply_user.animals.search(@search_params)
                                             .includes(:bleed)

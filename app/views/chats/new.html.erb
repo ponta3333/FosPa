@@ -7,6 +7,7 @@
     <% end %>
   </div>
 </div>
+<!-- ここからメッセージの表示 -->
 <% if @chats.exists? %>
 	<% @chats.each do |chat| %>
 		<div class="row">
@@ -44,6 +45,7 @@
 <% else %>
 	<h2 class="text-center">メッセージのやり取りはありません</h2>
 <% end %>
+<!-- ここまでメッセージの表示 -->
 <%= form_for(@chat) do |f| %>
 <div class="row">
 	<div class="col-xs-5 col-xs-offset-3 index-space">

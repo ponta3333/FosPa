@@ -22,6 +22,7 @@ class Event < ApplicationRecord
 
   attachment :image
 
+  #検索の記述　ここから----------------
   scope :search, -> (search_params) do
     return if search_params.blank?
 
@@ -32,5 +33,6 @@ class Event < ApplicationRecord
   scope :name_like, -> (name) { where('name LIKE ?', "%#{name}%") if name.present? }
   scope :day_is, -> (day) { where(day: day) if day.present? }
   scope :prefecture_is, -> (prefecture) { where(prefecture: prefecture) if prefecture.present? }
+  #ここまで----------------------------
 
 end
