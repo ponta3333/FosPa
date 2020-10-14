@@ -1,4 +1,4 @@
-# ![FosPa_logo_tail](https://user-images.githubusercontent.com/67258739/95942431-0e7fdb00-0e1e-11eb-86cd-8f15be3dae2b.png)
+![FosPa_logo_tail](https://user-images.githubusercontent.com/67258739/95942431-0e7fdb00-0e1e-11eb-86cd-8f15be3dae2b.png)
 
 ## サイト概要
 動物の里親を募集するポートフォリオ用に製作されたアプリです。
