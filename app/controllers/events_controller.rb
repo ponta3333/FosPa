@@ -6,9 +6,9 @@ class EventsController < ApplicationController
 
   def index
   	if demand_user_signed_in?
-  		@events = Event.order(day: :desc).page(params[:page]).reverse_order
+  		@events = Event.order(day: :asc).page(params[:page]).reverse_order
   	elsif supply_user_signed_in?
-  		@events = current_supply_user.events.order(day: :desc).page(params[:page]).reverse_order
+  		@events = current_supply_user.events.order(day: :asc).page(params[:page]).reverse_order
   	end
   end
 
