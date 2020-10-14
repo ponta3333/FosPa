@@ -13,21 +13,28 @@ Rails.application.routes.draw do
     passwords: 'supply_users/passwords',
     registrations: 'supply_users/registrations'
   }
-  resources :demand_users, only: [:show, :update]
-  get 'demand_users/demand_users/edit' => 'demand_users#edit'
   get 'demand_users/withdraw' => 'demand_users#withdraw'
-	patch 'demand_users/out' => 'demand_users#out'
-	resources :supply_users, only: [:show, :index, :update]
-  get 'supply_users/supply_users/edit' => 'supply_users#edit'
+  patch 'demand_users/out' => 'demand_users#out'
+  resources :demand_users, only: [:show, :update] do
+    scope module: 'supply_users' do
+      get 'chats' => 'chats#new'
+    end
+  end
+  get 'demand_users/demand_users/edit' => 'demand_users#edit'
   get 'supply_users/withdraw' => 'supply_users#withdraw'
-	patch 'supply_users/out' => 'supply_users#out'
+  patch 'supply_users/out' => 'supply_users#out'
+	resources :supply_users, only: [:show, :index, :update] do
+    scope module: 'demand_users' do
+      get 'chats' => 'chats#new'
+    end
+  end
+  get 'supply_users/supply_users/edit' => 'supply_users#edit'
+  get 'favorites' => 'favorites#index', as: :favorites
   resources :animals do
-  	resources :bleeds, only: [:create, :update] do
-  		resources :genres, only: [:create, :update]
-  	end
   	resources :favorites, only: [:create, :destroy]
   end
+  resources :genres, only: [:show]
   resources :events
-  resources :chats, only: [:show, :create, :index]
+  resources :chats, only: [:create, :index]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

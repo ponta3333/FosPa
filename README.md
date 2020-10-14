@@ -1,4 +1,4 @@
-# FosPa
+# ![FosPa_logo_tail](https://user-images.githubusercontent.com/67258739/95942431-0e7fdb00-0e1e-11eb-86cd-8f15be3dae2b.png)
 
 ## サイト概要
 動物の里親を募集するポートフォリオ用に製作されたアプリです。
@@ -22,6 +22,8 @@
 
 ### 機能一覧
 https://docs.google.com/spreadsheets/d/19Bv0LGIX2AYH42Of1d45d0NLjKBDl0xlTwOX4MsCmuA/edit#gid=0
+### ER図
+https://drive.google.com/file/d/1AA9eT6z_4H_Z2P_Dzc68ygmIyVHFDJg1/view?usp=sharing
 
 ## 開発環境
 - OS：Linux(CentOS)

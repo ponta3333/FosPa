@@ -1,10 +1,12 @@
 <div class="row relative">
   <div class="col-xs-4">
-    <h2><span class="underbar">会員情報</span></h2>
+    <h2 class="title-left"><span class="underbar">会員情報</span></h2>
   </div>
-  <div class="demand-link-position">
-  	<%= link_to "編集", demand_users_demand_users_edit_path, class: "btn btn-default" %>
-  </div>
+  <% if current_demand_user.id != 1 %>
+	  <div class="demand-link-position">
+	  	<%= link_to "編集", demand_users_demand_users_edit_path, class: "btn btn-default" %>
+	  </div>
+  <% end %>
 </div>
 <div class="row">
 	<div class="col-xs-12">
@@ -49,4 +51,7 @@
 			</tbody>
 		</table>
 	</div>
+</div>
+<div class="col-xs-2 col-xs-offset-9">
+	<%= link_to "退会する", demand_users_withdraw_path, class: "btn btn-danger btn-block" %>
 </div>

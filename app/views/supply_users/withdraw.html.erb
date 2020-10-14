@@ -1,0 +1,22 @@
+<div class="text-center">
+	<div>
+		<h2><b>本当に退会しますか？</b></h2>
+	</div>
+</div>
+<div class="text-center">
+	<div>
+		<P>退会すると、会員情報や各履歴の閲覧、</P>
+		<p>里親募集やイベント告知ができなくなります。</p>
+		<p>退会する場合は、「退会する」をクリックしてください。</p>
+	</div>
+</div>
+<div class="text-center">
+	<div class="inline">
+		<%= link_to "退会しない", supply_user_path(current_supply_user), class: "btn btn-info hover" %>
+	</div>
+	<% if current_supply_user.id != 1 %>
+		<div class="inline">
+			<%= link_to "退会する", supply_users_out_path, method: :patch, class: "btn btn-danger hover", data: {confirm: "本当によろしいですか？"} %>
+		</div>
+	<% end %>
+</div>

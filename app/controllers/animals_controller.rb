@@ -1,9 +1,27 @@
 class AnimalsController < ApplicationController
+
+  before_action :authenticate_supply_user!, only: [:new, :create, :edit, :update, :destroy]
+
   def show
+  	@animal = Animal.find(params[:id])
+  	@genre = Genre.find(@animal.bleed.genre_id)
   end
 
   def index
-  	@animals = current_supply_user.animals.order(created_at: :desc).page(params[:page])
+    @search_params = animal_search_params
+    @bleed_dog = Bleed.where(genre_id: 1)
+    @bleed_cat = Bleed.where(genre_id: 2)
+    if current_supply_user
+  	  @animals = current_supply_user.animals.search(@search_params)
+                                            .includes(:bleed)
+                                            .order(created_at: :desc)
+                                            .page(params[:page])
+    else
+      @animals = Animal.search(@search_params)
+                       .includes(:bleed)
+                       .order(created_at: :desc)
+                       .page(params[:page])
+    end
   end
 
   def new
@@ -29,8 +47,8 @@ class AnimalsController < ApplicationController
   	@bleed_dog = Bleed.where(genre_id: 1)
   	@bleed_cat = Bleed.where(genre_id: 2)
   	if @animal.save
-  		flash[:notice] = "募集完了しました"
-  		redirect_to animals_path
+  		flash[:notice] = "募集完了しました。"
+  		redirect_to animal_path(@animal)
   	else
   		render :new
   	end
@@ -58,10 +76,20 @@ class AnimalsController < ApplicationController
     @bleed_dog = Bleed.where(genre_id: 1)
     @bleed_cat = Bleed.where(genre_id: 2)
     if @animal.update(animal_params)
-      flash[:notice] = "編集完了しました"
+      flash[:notice] = "編集完了しました。"
       redirect_to animal_path(@animal)
     else
       render :edit
+    end
+  end
+
+  def destroy
+    @animal = Animal.find(params[:id])
+    if @animal.destroy
+      flash[:notice] = "募集を削除しました。"
+      redirect_to animals_path
+    else
+      render :show
     end
   end
 
@@ -69,6 +97,10 @@ class AnimalsController < ApplicationController
 
   def animal_params
   	params.require(:animal).permit(:supply_user_id, :image, :name, :sex, :age, :content, :animal_status)
+  end
+
+  def animal_search_params
+    params.fetch(:search, {}).permit(:name, :sex, :age, :dog_bleed_id, :cat_bleed_id)
   end
 
 end

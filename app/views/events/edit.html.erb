@@ -1,53 +1,14 @@
 <div class="row">
-  <div class="col-xs-4">
-    <h2><span class="underbar">イベント編集</span></h2>
+  <div class="col-xs-12">
+    <h2 class="title-left"><span class="underbar">イベント編集</span></h2>
   </div>
 </div>
 <%= form_for(@event, url: event_path(@event)) do |f| %>
-  <div class="row form-group">
-    <div class="col-xs-4 col-xs-offset-1">
-      <label class="control-label">イメージ画像</label><br />
-      <div>
-        <%= attachment_image_tag @event, :image, format: 'jpeg', size:"300x300", fallback: "fospa_no_image.png", class: "image" %>
-      </div>
-      <%= f.attachment_field :image, autocomplete: "image_id", id:"image" %>
-    </div>
-    <div class="col-xs-7">
-      <div class="row form-space">
-        <div class="col-xs-9">
-          <label class="control-label">イベント名</label><br />
-          <%= f.text_field :name, autofocus: true, class: "form-control", placeholder: "保護犬・猫譲渡会" %>
-        </div>
-      </div>
-      <div class="row form-space">
-        <div class="col-xs-9">
-          <label class="control-label">開催日時</label><br />
-          <%= f.date_select :day, {:use_month_numbers => true, :start_year => Time.now.year, :end_year => Time.now.year + 1, :default => Date.new(2020, 1, 1), :date_separator => '/'} %>
-        </div>
-      </div>
-      <div class="row form-space">
-        <div class="col-xs-9">
-          <label class="control-label">開催地域</label><br />
-          <%= f.select :prefecture, Event.prefectures.keys, class: "form-control", prompt:"---選択して下さい---" %>
-        </div>
-      </div>
-      <div class="row form-space">
-        <div class="col-xs-9">
-          <label class="control-label">開催場所</label><br />
-          <%= f.text_field :place, class: "form-control", placeholder: "東京駅八重洲口前" %>
-        </div>
-      </div>
-      <div class="row form-space">
-        <div class="col-xs-9">
-          <label class="control-label">イベント内容</label><br />
-          <%= f.text_area :content, class: "form-control", rows: 5, placeholder: "イベント内容を入力" %>
-        </div>
-      </div>
-      <div class="row form-space">
-        <div class="col-xs-12">
-          <%= f.submit "登録", class: "btn btn-default" %>
-        </div>
-      </div>
+  <%= render 'layouts/error_messages', model: f.object %>
+  <%= render 'events/event_form', f: f, event: @event %>
+  <div class="row form-space">
+    <div class="col-md-3 col-md-offset-5 col-xs-4 col-xs-offset-6">
+      <%= f.submit "編集完了", class: "btn btn-info" %>
     </div>
   </div>
 <% end %>

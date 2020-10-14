@@ -1,9 +1,10 @@
 <div class="row">
   <div class="col-xs-4">
-    <h2><span class="underbar">会員編集</span></h2>
+    <h2 class="title-left"><span class="underbar">会員編集</span></h2>
   </div>
 </div>
 <%= form_for(@demand_user, url: demand_user_path(current_demand_user)) do |f| %>
+  <%= render 'layouts/error_messages', model: f.object %>
   <div class="row form-space">
     <div class="col-xs-3 col-xs-offset-3">
       <label class="control-label">名前</label><br />
@@ -29,13 +30,13 @@
   <div class="row form-space">
     <div class="col-xs-3 col-xs-offset-3">
       <label class="control-label">郵便番号</label><br />
-      <%= f.text_field :postal_code, autocomplete: "postal_code", class: "form-control", placeholder: "1234567" %>
+      <%= f.text_field :postal_code, autocomplete: "postal_code", id: "user_postal_code", class: "form-control", placeholder: "1234567" %>
     </div>
   </div>
   <div class="row form-space">
     <div class="col-xs-6 col-xs-offset-3">
       <label class="control-label">住所</label><br />
-      <%= f.text_field :address, autocomplete: "address", class: "form-control", placeholder: "東京都千代田区霞ヶ関〇-〇-〇" %>
+      <%= f.text_field :address, autocomplete: "address", id: "user_address", class: "form-control", placeholder: "東京都千代田区霞ヶ関〇-〇-〇" %>
     </div>
   </div>
   <div class="row form-space">
@@ -56,7 +57,7 @@
   </div>
  <div class="row form-space">
     <div class="col-xs-3 col-xs-offset-3">
-      </i><%= f.submit " 編集完了", class: "btn btn-info" %>
+      </i><%= f.submit " 編集完了", class: "btn btn-success" %>
     </div>
   </div>
 <% end %>

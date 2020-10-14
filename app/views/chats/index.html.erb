@@ -1,2 +1,28 @@
-<h1>Chats#index</h1>
-<p>Find me in app/views/chats/index.html.erb</p>
+<div class="row">
+  <div class="col-xs-12">
+    <h2 class="title-left"><span class="underbar">お問い合わせ履歴一覧</span></h2>
+  </div>
+</div>
+<div class="row index-space">
+	<div class="col-xs-5 col-xs-offset-1">
+		<table class="table table-striped table-bordered user-table">
+			<tbody>
+				<% @chats.each do |chat| %>
+					<tr>
+						<td class="infomation">
+							<% if current_demand_user %>
+								<%= link_to supply_user_chats_path(chat.supply_user_id) do %>
+									<%= chat.supply_user.name %>さん
+								<% end %>
+							<% elsif current_supply_user %>
+								<%= link_to demand_user_chats_path(chat.demand_user_id) do %>
+									<%= chat.demand_user.nickname %>さん
+								<% end %>
+							<% end %>
+						</td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+</div>

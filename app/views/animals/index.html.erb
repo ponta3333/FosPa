@@ -1,42 +1,67 @@
 <div class="row">
-	<h2><span class="underbar">募集一覧</span></h2>
+	<% unless current_supply_user %>
+		<h2 class="title-left"><span class="underbar">犬猫詳細検索</span></h2>
+	<% else %>
+		<h2 class="title-left"><span class="underbar">里親募集履歴</span></h2>
+	<% end %>
+	<%= form_with(scope: :search, url: animals_path, method: :get, local: true) do |f| %>
+	  <div class="row form-group">
+	    <div class="col-xs-10 col-xs-offset-2">
+	      <div class="row form-space">
+	        <div class="col-md-3 col-xs-4">
+	          <label class="control-label">名前</label>
+	          <%= f.text_field :name, autofocus: true, class: "form-control", placeholder: "ポチ", value: @search_params[:name] %>
+	        </div>
+	      </div>
+	      <div class="row form-space">
+	        <div class="col-md-3 col-xs-4">
+	          <label class="control-label">性別</label>
+	          <%= f.select :sex, Animal.sexes.keys, class: "form-control", prompt:"---選択して下さい---", value: @search_params[:sex] %>
+	        </div>
+	        <div class="col-md-3 col-xs-4">
+	          <label class="control-label">年齢</label>
+	          <%= f.select :age, Animal.ages.keys, class: "form-control", prompt:"---選択して下さい---", value: @search_params[:age] %>
+	        </div>
+	      </div>
+	      <div class="row form-space">
+	        <div class="col-xs-12">
+	          <label class="control-label">種類 <span class="explanation">(犬猫いずれかを選択,決定後に種類を選択)</span></label>
+	          <div class="row">
+	            <label class="col-md-2 col-xs-2"><input type="radio" name="genre_radio" value="1"> 犬</label>
+	            <label class="col-md-2 col-xs-2"><input type="radio" name="genre_radio" value="2"> 猫</label>
+	            <div class="col-md-2 col-xs-3">
+	            	<%= button_tag '決定', type: 'button', id:"kettei" %>
+	         		</div>
+	            <div class="col-md-2 col-xs-2">
+			          <%= f.submit "検索", class: "btn btn-info" %>
+			        </div>
+	          </div>
+	        </div>
+	      </div>
+	      <div class="row form-space">
+	        <div class="col-xs-4">
+	          <div class="dog_select">
+	            <%= f.collection_select :dog_bleed_id, @bleed_dog, :id, :name, class: "form-control", prompt:"-------選択して下さい-------", value: @search_params[:bleed_id] %>
+	          </div>
+	          <div class="cat_select">
+	            <%= f.collection_select :cat_bleed_id, @bleed_cat, :id, :name, class: "form-control", prompt:"------選択して下さい------", value: @search_params[:bleed_id] %>
+	          </div>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+	<% end %>
 	<div class="col-xs-12 text-center index-space">
 		<div class="row">
 			<% if @animals.exists? %>
-			<% @animals.each do |animal| %>
-				<% if animal.sex == "オス" %>
-					<div class="col-xs-3 animalmale">
-						<div>
-							<%= link_to animal_path(animal) do %>
-								<%= attachment_image_tag animal, :image, format: 'jpeg', size:"230x230", class: "animal-image" %>
-									<p><%= animal.name %></p>
-									<p><%= animal.bleed.name %>/<%= animal.sex %>/<%= animal.age %></p>
-							<% end %>
-						</div>
-					</div>
-				<% else %>
-					<div class="col-xs-3 animalfemale">
-						<div>
-							<%= link_to animal_path(animal) do %>
-								<%= attachment_image_tag animal, :image, format: 'jpeg', size:"230x230", class: "animal-image" %>
-									<p class="animalfont"><%= animal.name %></p>
-									<p class="animalfont"><%= animal.bleed.name %>/<%= animal.sex %>/<%= animal.age %></p>
-							<% end %>
-						</div>
-					</div>
-				<% end %>
-			<% end %>
+				<%= render 'animals/animals', animals: @animals %>
 			<% else %>
-			<h3>投稿したイベントが表示されます</h3>
+				<% if current_supply_user %>
+					<h3>現在、募集していません</h3>
+				<% else %>
+					<h3>募集がありません</h3>
+				<% end %>
 			<% end %>
 		</div>
 	</div>
 </div>
-<div class="row">
-  <div class="col-xs-8 col-md-offset-2">
-    <div class="text-center">
-      <%= paginate @animals %>
-    </div>
-  </div>
-</div>
-
