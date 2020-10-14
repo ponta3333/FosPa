@@ -12,7 +12,7 @@ class EventsController < ApplicationController
     else
       @search_params = event_search_params
       @events = Event.search(@search_params)
-                       .order(created_at: :asc)
+                       .order(day: :asc)
                        .page(params[:page])
     end
   end
