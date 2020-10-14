@@ -8,11 +8,11 @@ class EventsController < ApplicationController
 
   def index
     if current_supply_user
-      @events = current_supply_user.events.order(day: :desc).page(params[:page])
+      @events = current_supply_user.events.order(day: :asc).page(params[:page])
     else
       @search_params = event_search_params
       @events = Event.search(@search_params)
-                       .order(created_at: :desc)
+                       .order(created_at: :asc)
                        .page(params[:page])
     end
   end
