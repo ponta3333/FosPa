@@ -1,0 +1,2 @@
+class DemandUserNotification < ApplicationRecord
+end
