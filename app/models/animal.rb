@@ -3,6 +3,7 @@ class Animal < ApplicationRecord
   attr_accessor :dog_bleed_id, :cat_bleed_id
 
   has_many :favorites, dependent: :destroy
+  has_many :tags, dependent: :destroy
   belongs_to :bleed
   belongs_to :supply_user
 
