@@ -47,6 +47,10 @@ class AnimalsController < ApplicationController
   	@bleed_dog = Bleed.where(genre_id: 1)
   	@bleed_cat = Bleed.where(genre_id: 2)
   	if @animal.save
+      tags = Vision.get_image_data(@animal.image_id)
+      tags.each do |tag|
+        @animal.tags.create(name: tag)
+      end
   		flash[:notice] = "募集完了しました。"
   		redirect_to animal_path(@animal)
   	else
