@@ -8,6 +8,5 @@ class Chat < ApplicationRecord
   validates :supply_user_id, presence: true
   validates :message, presence: true
   validates :which_from, presence: true
-  
 
 end
