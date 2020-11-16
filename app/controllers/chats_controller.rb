@@ -12,6 +12,14 @@ class ChatsController < ApplicationController
   		@chat.which_from = current_supply_user.name
   	end
   	if @chat.save
+      if current_supply_user
+        notification = Notification.new(
+          chat_id: id
+          reciever_id: @chat.demand_user_id
+          sender_id: current_supply_user
+          )
+        notification.save if notification.valid?
+      end
   		flash[:notice] = "メッセージを投稿しました。"
   		redirect_to request.referer
   	else
