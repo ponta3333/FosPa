@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'notifications/index'
 	root 'home#top'
 	get 'about' => 'home#about'
 
@@ -36,5 +37,6 @@ Rails.application.routes.draw do
   resources :genres, only: [:show]
   resources :events
   resources :chats, only: [:create, :index]
+  resources :demand_user_notifications, only: [:index]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

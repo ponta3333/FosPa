@@ -1,0 +1,8 @@
+<div class="notification">
+  <% if @notifications.exists? %>
+    <%= render 'demand_user_notifications/notifications', notifications: @notifications %>
+    <%= paginate @notifications %>
+  <% else %>
+    <p>通知がありません</p>
+  <% end %>
+</div>
