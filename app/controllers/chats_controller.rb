@@ -16,7 +16,9 @@ class ChatsController < ApplicationController
         @notification = DemandUserNotification.new(
           chat_id: @chat.id,
           receiver_id: @chat.demand_user_id,
-          sender_id: current_supply_user.id)
+          sender_id: current_supply_user.id
+
+          )
         @notification.save
       end
         binding.pry
