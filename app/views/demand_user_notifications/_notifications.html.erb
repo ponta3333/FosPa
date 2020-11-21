@@ -1,5 +1,5 @@
 <div>
   <% notifications.each do |notification| %>
-    <%= notification.sender_id %>
+    <span><%= notification.supply_user.name %>さんから新しいメッセージが届きました。</span>
   <% end %>
 </div>
