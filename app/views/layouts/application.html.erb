@@ -28,6 +28,14 @@
           <ul class="menu-bar">
             <% if demand_user_signed_in? %>
               <li class="menu-list">
+                <% if unchecked_notifications.any? %>
+                  <i class="fa fa-circle" style="color: orange;"></i>
+                <% else %>
+                  <i class="fas fa-paw"></i>
+                <% end %>
+                  <%= link_to " お知らせ", demand_user_notifications_path, class: "list" %>
+              </li>
+              <li class="menu-list">
                 <i class="fas fa-paw"></i><%= link_to " マイページ", demand_user_path(current_demand_user), class: "list" %>
               </li>
               <li class="nav-dropdown dropdown menu-list">
@@ -141,9 +149,13 @@
             <strong class="welcome-message"><span class="underbar">ようこそ ゲストさん !</span></strong>
           <% end %>
         </div>
-        <span class="notification_mark">
-          <i class="fa fa-circle"></i>
-        </span>
+        <% if current_demand_user %>
+          <% if unchecked_notifications.any? %>
+            <span class="notification_mark">
+              <i class="fa fa-circle"></i>
+            </span>
+          <% end %>
+        <% end %>
         <div id="hm-icon">
             <%= link_to "#", class: "menu-trigger" do %>
 
