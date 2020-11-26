@@ -4,7 +4,7 @@
       <% notifications.each do |notification| %>
         <tr>
             <th>
-              <%= link_to supply_user_chats_path(notification.supply_user.id) do %>
+              <%= link_to supply_user_chats_path(notification.supply_user.id, anchor: 'bottom') do %>
                 <%= notification.supply_user.name %>さんからメッセージが届きました。
               <% end %>
             </th>

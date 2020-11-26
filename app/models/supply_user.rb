@@ -5,6 +5,7 @@ class SupplyUser < ApplicationRecord
   has_many :animals, dependent: :destroy
   has_many :events, dependent: :destroy
   has_many :demand_user_notifications, foreign_key: 'sender_id', dependent: :destroy
+  has_many :supply_user_notifications, foreign_key: 'receiver_id', dependent: :destroy
 
   enum is_deleted: { 有効: false, 退会済み: true }
 

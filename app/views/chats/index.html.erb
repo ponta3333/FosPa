@@ -11,11 +11,11 @@
 					<tr>
 						<td class="infomation">
 							<% if current_demand_user %>
-								<%= link_to supply_user_chats_path(chat.supply_user_id) do %>
+								<%= link_to supply_user_chats_path(chat.supply_user_id, anchor: 'bottom') do %>
 									<%= chat.supply_user.name %>さん
 								<% end %>
 							<% elsif current_supply_user %>
-								<%= link_to demand_user_chats_path(chat.demand_user_id) do %>
+								<%= link_to demand_user_chats_path(chat.demand_user_id, anchor: 'bottom') do %>
 									<%= chat.demand_user.nickname %>さん
 								<% end %>
 							<% end %>

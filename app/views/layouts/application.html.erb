@@ -157,7 +157,7 @@
             <strong class="welcome-message"><span class="underbar">ようこそ ゲストさん !</span></strong>
           <% end %>
         </div>
-        <% if current_demand_user %>
+        <% if current_demand_user or current_supply_user %>
           <% if unchecked_notifications.any? %>
             <span class="notification_mark">
               <i class="fa fa-circle"></i>

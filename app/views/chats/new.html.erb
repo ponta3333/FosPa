@@ -13,9 +13,9 @@
 		<div class="row">
 			<div class="col-xs-2 col-xs-offset-1 text-right">
 				<% if current_demand_user && @supply_user.name == chat.which_from %>
-					<p><%= chat.which_from %>さん</p>
+					<p><%= chat.supply_user.name %>さん</p>
 				<% elsif current_supply_user && @demand_user.nickname == chat.which_from %>
-					<p><%= chat.which_from %>さん</p>
+					<p><%= chat.demand_user.nickname %>さん</p>
 				<% end %>
 			</div>
 			<% if current_demand_user %>
@@ -48,7 +48,7 @@
 <!-- ここまでメッセージの表示 -->
 <%= form_for(@chat) do |f| %>
 <div class="row">
-	<div class="col-xs-5 col-xs-offset-3 index-space">
+	<div id="bottom" class="col-xs-5 col-xs-offset-3 index-space">
 		<%= f.text_area :message, class: "form-control text-area" %>
 	</div>
 	<div class="col-xs-2">
