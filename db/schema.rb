@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_18_043007) do
+ActiveRecord::Schema.define(version: 2020_11_26_092718) do
 
   create_table "animals", force: :cascade do |t|
     t.integer "bleed_id", null: false
@@ -92,6 +92,15 @@ ActiveRecord::Schema.define(version: 2020_10_18_043007) do
 
   create_table "genres", force: :cascade do |t|
     t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "supply_user_notifications", force: :cascade do |t|
+    t.integer "sender_id", null: false
+    t.integer "receiver_id", null: false
+    t.integer "chat_id", null: false
+    t.boolean "checked", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
