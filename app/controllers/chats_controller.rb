@@ -19,6 +19,13 @@ class ChatsController < ApplicationController
           sender_id: current_supply_user.id
           )
         notification.save
+      elsif current_demand_user
+        notification = SupplyUserNotification.new(
+          chat_id: @chat.id,
+          receiver_id: @chat.supply_user_id,
+          sender_id: current_demand_user.id
+          )
+        notification.save
       end
   		flash[:notice] = "メッセージを投稿しました。"
   		redirect_to request.referer

@@ -64,6 +64,14 @@
               </li>
             <% elsif supply_user_signed_in? %>
               <li class="menu-list">
+                <% if unchecked_notifications.any? %>
+                  <i class="fa fa-circle" style="color: orange;"></i>
+                <% else %>
+                  <i class="fas fa-paw"></i>
+                <% end %>
+                  <%= link_to " お知らせ", supply_user_notifications_path, class: "list" %>
+              </li>
+              <li class="menu-list">
                 <i class="fas fa-paw"></i><%= link_to " マイページ", supply_user_path(current_supply_user), class: "list" %>
               </li>
               <li class="menu-list">

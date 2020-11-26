@@ -1,2 +1,10 @@
-<h1>SupplyUserNotifications#index</h1>
-<p>Find me in app/views/supply_user_notifications/index.html.erb</p>
+<div class="notification">
+  <% if @notifications.exists? %>
+    <%= render 'supply_user_notifications/notifications', notifications: @notifications %>
+    <%= paginate @notifications %>
+  <% else %>
+    <div class="col-xs-12 text-center index-space">
+      <h3>お知らせはありません</h3>
+    </div>
+  <% end %>
+</div>

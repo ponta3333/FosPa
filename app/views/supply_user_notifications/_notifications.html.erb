@@ -1,0 +1,18 @@
+<div>
+  <table class="table notification_table">
+    <thead>
+      <% notifications.each do |notification| %>
+        <tr>
+            <th>
+              <%= link_to supply_user_chats_path(notification.demand_user.id) do %>
+                <%= notification.demand_user.nickname %>さんからメッセージが届きました。
+              <% end %>
+            </th>
+            <th>
+              <%= time_ago_in_words(notification.created_at).upcase %>前
+            </th>
+        </tr>
+      <% end %>
+    </thead>
+  </table>
+</div>
