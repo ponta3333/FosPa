@@ -29,6 +29,7 @@ class ChatsController < ApplicationController
       end
   		flash[:notice] = "メッセージを投稿しました。"
   		redirect_to request.referer
+      
   	else
   		render :new
   	end
