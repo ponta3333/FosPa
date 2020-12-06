@@ -3,4 +3,5 @@ class SupplyUserNotification < ApplicationRecord
   belongs_to :demand_user, foreign_key: 'sender_id', optional: true
   belongs_to :supply_user, foreign_key: 'receiver_id', optional: true
   belongs_to :chats, optional: true
+  
 end
